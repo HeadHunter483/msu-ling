@@ -1,3 +1,3 @@
 # msu-ling
-MSU lingvistics
-syntax and semantic analysers (not working yet)
+MSU lingvistics<br/>
+Syntax and semantic analysers (not working yet)
