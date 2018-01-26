@@ -1,0 +1,50 @@
+49
+nulmz	0	intfloat
+odin	1	intfloat
+poltora	1.5	float 
+tretmz	1/3	float
+chetvertmz	1/4	float
+polovina	1/2	float
+dva	2	intfloat
+tri	3	intfloat
+chetyire	4	intfloat
+pyatmz	5	intfloat
+shestmz	6	intfloat
+semmz	7	intfloat
+vosemmz	8	intfloat
+devyatmz	9	intfloat
+desyatmz	10	intfloat
+odinnadtcatmz	11	intfloat
+dvenadtcatmz	12	intfloat
+trinadtcatmz	13	intfloat
+chetyirnadtcatmz	14	intfloat
+pyatnadtcatmz	15	intfloat
+shestnadtcatmz   	16	intfloat
+semnadtcatmz	17	intfloat
+vosemnadtcatmz	18	intfloat
+devyatnadtcatmz	19	intfloat
+dvadtcatmz	20	intfloat
+tridtcatmz	30	intfloat
+sorok	40	intfloat
+pyatmzdesyat	50	intfloat
+shestmzdesyat	60	intfloat
+semmzdesyat	70	intfloat
+vosemmzdesyat	80	intfloat
+devyanosto	90	intfloat
+sto	100	intfloat
+poltorasta	150	float	
+dvesti	200	intfloat
+trista	300	intfloat
+chetyiresta	400	intfloat	
+pyatmzsot	500	intfloat
+shestmzsot	600	intfloat
+semmzsot	700	intfloat
+vosemmzsot	800	intfloat
+devyatmzsot	900	intfloat
+tyisyacha	1000	intfloat
+million	1000000	intfloat
+milliard	100000000	intfloat
+trillion	100000000000	intfloat
+
+		
+

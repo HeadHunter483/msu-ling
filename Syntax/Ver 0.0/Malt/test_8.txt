@@ -1,0 +1,8 @@
+1	найти	V	0	root
+2	площадь	S	1	1-kompl
+3	окружности	S	2	kvaziagent
+4	с радиусом	PR+S	3	predl
+5	3 см	num+s	4	kompl-appoz
+6	.	SENT	5	punc
+				
+

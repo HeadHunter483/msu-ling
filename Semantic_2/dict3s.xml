@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<dict id="S">
+  <token id="0">
+    <word>ГЕОМЕТРИЯ</word>
+    <morph>S</morph>
+    <parent>-1</parent>
+    <prop></prop>
+    <list></list>
+    <func></func>
+  </token>
+  <token id="1">
+    <word>ФИГУРА</word>
+    <morph>S</morph>
+    <parent>0</parent>
+    <prop></prop>
+    <list></list>
+    <func></func>
+  </token>
+  <token id="2">
+    <word>МНОГОУГОЛЬНИК</word>
+    <morph>S</morph>
+    <parent>1</parent>
+    <prop>
+      СТОРОНА=N
+      УГОЛ=N
+      ВЕРШИНА=N
+    </prop>
+    <list></list>
+    <func></func>
+  </token>
+  <token id="3">
+    <word>ТРЕУГОЛЬНИК</word>
+    <morph>S</morph>
+    <parent>2</parent>
+    <prop>
+      СТОРОНА=3
+      УГОЛ=3
+      ВЕРШИНА=3
+      ВЫСОТА=3
+      МЕДИАНА=3
+      БИССЕКТРИСА=3
+    </prop>
+    <list></list>
+    <func></func>
+  </token>
+  <token id="4">
+    <word>ЧЕТЫРЕХУГОЛЬНИК</word>
+    <morph>S</morph>
+    <parent>2</parent>
+    <prop>
+      СТОРОНА=4
+      УГОЛ=4
+      ВЕРШИНА=4
+      ДИАГОНАЛЬ=2
+    </prop>
+    <list></list>
+    <func></func>
+  </token>
+  <token id="5">
+    <word>РОМБ</word>
+    <morph>S</morph>
+    <parent>4</parent>
+    <prop></prop>
+    <list></list>
+    <func></func>
+  </token>
+  <token id="6">
+    <word>ОКРУЖНОСТЬ</word>
+    <morph>S</morph>
+    <parent>2</parent>
+    <prop>
+      ЦЕНТР=1
+      РАДИУС=1
+      ДИАМЕТР=1
+      ХОРДА=N
+      КАСАТЕЛЬНАЯ=N
+    </prop>
+    <list></list>
+    <func></func>
+  </token>
+  <token id="7">
+    <word>ОТРЕЗОК</word>
+    <morph>S</morph>
+    <parent>0</parent>
+    <prop>
+      ДЛИНА=1
+      ВЕРШИНА=2
+    </prop>
+    <list></list>
+    <func></func>
+  </token>
+  <token id="8">
+    <word>СТОРОНА</word>
+    <morph>S</morph>
+    <parent>7</parent>
+    <prop></prop>
+    <list></list>
+    <func></func>
+  </token>
+  <token id="9">
+    <word>УГОЛ</word>
+    <morph>S</morph>
+    <parent>0</parent>
+    <prop>
+      ВЕЛИЧИНА=1
+      СТОРОНА=2
+    </prop>
+    <list></list>
+    <func></func>
+  </token>
+  <token id="10">
+    <word>ДИАГОНАЛЬ</word>
+    <morph>S</morph>
+    <parent>7</parent>
+    <prop></prop>
+    <list></list>
+    <func></func>
+  </token>
+  <token id="11">
+    <word>РАДИУС</word>
+    <morph>S</morph>
+    <parent>7</parent>
+    <prop></prop>
+    <list></list>
+    <func></func>
+  </token>
+  <token id="12">
+    <word>ДИАМЕТР</word>
+    <morph>S</morph>
+    <parent>7</parent>
+    <prop></prop>
+    <list></list>
+    <func></func>
+  </token>
+  <token id="13">
+    <word>ХОРДА</word>
+    <morph>S</morph>
+    <parent>7</parent>
+    <prop></prop>
+    <list></list>
+    <func></func>
+  </token>
+  <token id="14">
+    <word>ОТНОШЕНИЕ</word>
+    <morph>S</morph>
+    <parent>-1</parent>
+    <prop></prop>
+    <list></list>
+    <func>
+      ОТНОШЕНИЕ(S,S)
+    </func>
+  </token>
+</dict>

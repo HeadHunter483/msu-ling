@@ -1,0 +1,123 @@
+122
+a imenno	ADV
+a takzhe	CONJ
+a to	CONJ
+a to i	CONJ
+bolee chem	ADV
+v vide	PR
+v vidu	ADV
+v znachitelmznoy mere	ADV
+v kachestve	PR
+v konechnom schete	ADV
+v kontse kontsov	ADV
+v nastoyashchee vremya	ADV
+v obshchey slozhnosti	ADV
+v odinochku	ADV
+v osobennosti	ADV
+v otlichie ot	PR
+v otnoshenii	PR
+v pervuyu ocheredmz	ADV
+v protivnom sluchae	ADV
+v svyazi s	PR
+v sluchae esli	CONJ
+v sootvetstvii s	PR
+v techenie	PR
+v to vremya kak	CONJ
+v tom chisle	ADV
+v xode	PR
+v chastnosti	ADV
+vo vremya	PR
+vo glave	ADV
+vo izbezhanie	PR
+vplotmz do	PR
+vryad li	ADV
+vse zhe	PART
+vse ravno	ADV
+do poryi do vremeni	ADV
+do six por	ADV
+do togo kak	CONJ
+edva li	ADV
+edva ne	PART
+za isklyucheniem	PR
+za rubezhom	ADV
+za schet	PR
+kak budto	PART
+kak budto	CONJ
+kak byi	PART
+kak byi	ADV
+kak byi to ni byilo	ADV
+kak esli byi	CONJ
+kak minimum	ADV
+kak raz	ADV
+kak tolmzko	CONJ
+kolmz skoro	CONJ
+mezhdu prochim	ADV
+menee chem	ADV
+na plavu	ADV
+naravne s	PR
+ne prochmz	ADV
+ne to	CONJ
+nevziraya na	PR
+nesmotrya na	PR
+ni v koey mere	ADV
+ni v koem sluchae	ADV
+ni razu	ADV
+nikoim obrazom	ADV
+ottogo chto	CONJ
+po krayney mere	ADV
+po menmzshey mere	ADV
+po mere	PR
+po mere togo kak	CONJ
+po otnosheniyu k	PR
+po povodu	PR
+po sravneniyu s	PR
+potomu chto	CONJ
+prezhde vsego	ADV
+prezhde chem	CONJ
+pri pomoshchi	PR
+razve chto	CONJ
+razve chto	ADV
+s pomoshchmzyu	PR
+s tex por	ADV
+s tex por kak	CONJ
+so storonyi	PR
+tak zhe	ADV
+tak zhe kak	CONJ
+tak i	CONJ
+tak kak	CONJ
+tak chto	CONJ
+takim obrazom	ADV
+tem bolee	ADV
+tem ne menee	ADV
+to estmz	ADV
+togda kak	CONJ
+tomu nazad	PR
+xotya byi	ADV
+chto ni na estmz	PART
+chutmz ne	PART
+mezhdu soboy	IDIOM
+drug drugu	IDIOM
+almzfa		NONLEX	
+beta		NONLEX	
+gamma		NONLEX	
+delmzta		NONLEX	
+yepsilon	NONLEX	
+dzeta		NONLEX	
+yeta		NONLEX	
+teta		NONLEX	
+iota		NONLEX	
+kappa		NONLEX	
+lambda		NONLEX	
+myu		NONLEX	
+nyu		NONLEX	
+ksi		NONLEX	
+omikron		NONLEX	
+pi		NONLEX	
+ro		NONLEX	
+sigma		NONLEX	
+tau		NONLEX	
+yupsilon	NONLEX	
+fi		NONLEX	
+xi		NONLEX	
+psi		NONLEX	
+omega		NONLEX	

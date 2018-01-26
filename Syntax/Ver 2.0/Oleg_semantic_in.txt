@@ -1,0 +1,9 @@
+8
+1	дан	дать	PARTCP	PARTCP pf praet - sg brev m pass -	PARTCP pf praet - sg brev m pass -	0	root	_	_
+2	треугольник	треугольник	S	S m inan nom sg	S m inan nom sg	1	predik	_	_
+3	abc	abc	NONLEX	NONLEX	NONLEX	2	atrib	_	_
+4	со	с	PR	PR	PR	3	atrib	_	_
+5	сторонами	сторона	S	S f inan ins pl	S f inan ins pl	4	predl	_	_
+6	ab	ab	NONLEX	NONLEX	NONLEX	5	atrib	_	_
+7	и	и	CONJ	CONJ	CONJ	6	unkn	_	_
+8	bc	bc	NONLEX	NONLEX	NONLEX	5	atrib	_	_

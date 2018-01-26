@@ -1,0 +1,14 @@
+1	найти	V	0	root
+2	высоту	S	1	1-kompl
+3	трапеции	S	2	kvaziagent
+4	,	,	3	punc
+5	если	CONJ	1	obst
+6	ее	SPRO	8	1-kompl
+7	меньшая	A	8	opred
+8	диагональ	S	9	predik
+9	равна	A	5	podch-soyuzn
+10	большему	A	11	opred
+11	основанию	S	9	2-kompl
+12	.	SENT	11	punc
+				
+

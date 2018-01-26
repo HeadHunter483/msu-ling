@@ -1,0 +1,65 @@
+2
+16
+14
+1	в	в	PR	PR	PR	
+14	obst	_	_
+2	ромб	ромб	S	S M iNAN NOM Sg	S M iNAN NOM Sg	
+1	predl	_	_
+3	ABCD	ABCD	NONLEX	NONLEX	NONLEX	
+2	atrib	_	_
+4	и	и	CONJ	CONJ	CONJ	
+3	sochin	_	_
+5	в	в	PR	PR	PR	
+14	obst	_	_
+6	треугольник	треугольник	S	S M iNAN Acc Sg	S M iNAN Acc Sg	
+5	predl	_	_
+7	ABC	ABC	NONLEX	NONLEX	NONLEX	
+6	atrib	_	_
+8	,	,	,	,	PuNc	
+7	PuNc	_	_
+9	содержащий	содержать	PARTCP	PARTCP iPf iNPRAES Acc Sg PlEN M Act iNAN	PARTCP iPf iNPRAES Acc Sg PlEN M Act iNAN	
+6	opred	_	_
+10	его	его	A	A - NONflEx NONflEx PlEN - -	A - NONflEx NONflEx PlEN - -	
+12	kvaziagent	_	_
+11	большую	большой	A	A - Acc Sg PlEN f -	A - Acc Sg PlEN f -	
+12	opred	_	_
+12	диагональ	диагональ	S	S f iNAN NOM Sg	S f iNAN NOM Sg	
+9	predic	_	_
+13	,	,	,	,	PuNc	
+12	PuNc	_	_
+14	вписаны	вписывать	PARTCP	PARTCP Pf PRAEt - Pl BrEV - PASS -	PARTCP Pf PRAEt - Pl BrEV - PASS -	
+0	root	_	_
+15	окружности	окружность	S	S f iNAN gEN Sg	S f iNAN gEN Sg	
+14	2-kompl	_	_
+16	.	.	SENT	SENT	SENT	
+15	PuNc	_	_
+									
+1	найти	находить	V	V Pf - - iNf - -	V Pf - - iNf - -	
+0	root	_	_
+2	отношение	отношение	S	S N iNAN Acc Sg	S N iNAN Acc Sg	
+1	1-kompl	_	_
+3	радиусов	радиус	S	S M iNAN gEN Pl	S M iNAN gEN Pl	
+2	kvaziagent	_	_
+4	этих	этот	A	A - gEN Pl PlEN - -	A - gEN Pl PlEN - -	
+5	opred	_	_
+5	окружностей	окружность	S	S f iNAN gEN Pl	S f iNAN gEN Pl
+3	kvaziagent	_	_
+6	,	,	,	,	PuNc	
+5	PuNc	_	_
+7	если	если	CONJ	CONJ	CONJ	
+1	obst	_	_
+8	острый	острый	A	A - Acc Sg PlEN M iNAN	A - Acc Sg PlEN M iNAN	
+9	opred	_	_
+9	угол	угол	S	S M iNAN Acc Sg	S M iNAN Acc Sg	
+11	1-kompl	_	_
+10	ромба	ромб	S	S M iNAN gEN Sg	S M iNAN gEN Sg	
+9	kvaziagent	_	_
+11	равен	равный	A	A - - Sg BrEV M -	A - - Sg BrEV M -	
+7	predic	_	_
+12	тридцать	тридцать	NUM	NUM Acc - -	NUM Acc - -
+13	колич-vspom	_	_
+13	четыре	четыре	NUM	NUM NOM - -	NUM NOM - -	
+11	kolich	_	_
+14	.	.	SENT	SENT	SENT	
+13	PuNc	_	_
+									

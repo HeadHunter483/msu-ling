@@ -1,0 +1,12 @@
+1	отрезки	S	7	predik
+2	a	abr	1	atrib
+3	,	,	2	punc
+4	b	abr	1	atrib
+5	и	CONJ	1	sochin
+6	f	abr	1	atrib
+7	пересекаются	V	0	root
+8	в точке	PR+S	7	predl
+9	o	abr	8	atrib
+10	.	SENT	9	punc
+				
+

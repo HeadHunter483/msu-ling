@@ -1,0 +1,15 @@
+14
+sm	meas	_	_	_	_	
+mm	meas	_	_	_	_
+dm	meas	_	_	_	_
+m	meas	_	_	_	_
+km	meas	_	_	_	_
+gradus	meas	_	_	_	_
+vyisota	therm	f	_	_	_
+mediana	therm	f	_	_	_
+bissektrisa	therm	f	_	_	_
+storona	therm	f	_	_	_
+ugol	therm	m	ostryiy	tupoy	pryamoy	
+katet	therm	m	_	_	_	
+treugolnik	therm	m	pryamougolmznyiy	ravnobedrennyiy	ravnostoronniy
+trapetcyiya	therm	f	pryamougolmznyiy	ravnobedrennyiy	_

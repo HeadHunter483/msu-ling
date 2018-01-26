@@ -1,0 +1,8 @@
+1	прямые	S	5	subj-predic
+2	a	abr	1	atrib
+3	и	CONJ	2	sochin
+4	b	abr	1	atrib
+5	параллельны	A	0	root
+6	.	SENT	5	punc
+				
+

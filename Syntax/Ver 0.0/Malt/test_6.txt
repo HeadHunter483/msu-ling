@@ -1,0 +1,14 @@
+1	дан	PARTCP	0	root
+2	прямоугольный	A	3	opred
+3	треугольник	S	1	predik
+4	с гипотенузой	PR+S	3	predl
+5	и	CONJ	4	sent-soch
+6	прилежащими	PARTCP	8	opred
+7	к ней	PR+SPRO	7	predl
+8	(с) углами	S	3	predl
+9	ALPHA	abr	8	atrib
+10	и	CONJ	9	sochin
+11	BETA	abr	8	atrib
+12	.	SENT	11	punc
+				
+

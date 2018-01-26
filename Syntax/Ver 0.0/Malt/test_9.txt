@@ -1,0 +1,5 @@
+1	у треугольника	PR+S	2	predl
+2	три стороны	num+s	0	root
+3	.	SENT	2	punc
+				
+

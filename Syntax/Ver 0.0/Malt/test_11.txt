@@ -1,0 +1,16 @@
+1	даны	PARTCP	0	root
+2	стороны	S	1	2-kompl
+3	a	abr	2	atrib
+4	,	,	3	punc
+5	b	abr	2	atrib
+6	,	,	5	punc
+7	c	abr	2	atrib
+8	и	CONJ	1	sochin
+9	d	abr	2	atrib
+10	четырехугольника	S	2	predik
+11	,	,	10	punc
+12	вписанного	PARTCP	10	opred
+13	в окружность	PR+S	12	predl
+14	.	SENT	13	punc
+				
+

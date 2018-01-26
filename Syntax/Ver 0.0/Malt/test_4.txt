@@ -1,0 +1,10 @@
+1	найти	V	0	root
+2	периметр	S	1	1-kompl
+3	треугольника	S	2	kvaziagent
+4	ABC	abr	3	atrib
+5	с длиной	PR+S	4	predl
+6	стороны	S	5	kvaziagent
+7	5 см	num+s	5	kompl-appoz
+8	.	SENT	7	punc
+				
+

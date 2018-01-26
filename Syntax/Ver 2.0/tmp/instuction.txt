@@ -1,0 +1,4 @@
+id	part_of_speach	 morph_parametr_0  was_already    before         prev_part_of_speach          next_part_of_speach  morph_parametr_1      morph_parametr_2          num      type_of_link reserve
+
+
+нужно ввести морф корректор . данные правила только для случай верной морфологии

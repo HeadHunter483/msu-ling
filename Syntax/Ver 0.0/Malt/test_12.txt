@@ -1,0 +1,15 @@
+1	общая	A	3	opred
+2	внешняя	A	3	opred
+3	касательная	S	7	predik
+4	двух окружностей	num+s	6	1-kompl
+5	внешне	ADV	6	ogranich
+6	касающихся	PARTCP	7	predik
+7	составляет	V	0	root
+8	с линией	PR+S	8	predl
+9	центров	S	8	kvaziagent
+10	угол	S	0	root
+11	сорок градусов	num+s	10	kvaziagent
+12	пять	NUM	12	kolichest
+13	.	SENT	12	punc
+				
+

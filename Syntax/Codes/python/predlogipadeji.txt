@@ -1,0 +1,31 @@
+30
+bez	gen	No
+u	gen	No
+do 	gen	No
+ot	gen	No
+s	gen	ins
+okolo 	gen	No
+iz	gen	No
+vozle	gen	No
+posle	gen	No
+dlya	gen	No
+vokrug	gen	No
+k	loc	dat
+po	loc	dat
+v	loc	acc
+za	acc	ins
+na	acc	No
+pro	acc	No
+cherez	acc	No
+nad	ins	No
+pod	ins	No
+pered	ins	No
+o	loc	No
+ob	loc	No
+obo	loc	No
+pri	loc	No
+		
+		
+		
+		
+		

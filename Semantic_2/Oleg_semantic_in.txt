@@ -1,0 +1,10 @@
+9
+1  дан  давать  PARTCP  partcp pf praet - sg brev m pass -  _  0  root  _  _
+2  треугольник  треугольник  S  s m inan nom sg  _  1  predik  _  _
+3  ABC  ABC  abr  _  _  2  atrib  _  _
+4  со  со  PR  pr  _  2  atrib  _  _
+5  сторонами  сторона  S  s f inan ins pl  _  4  predl  _  _
+6  AB  AB  abr  _  _  5  atrib  _  _
+7  и  и  CONJ  conj  _  6  sochin  _  _
+8  BC  BC  abr  _  _  5  atrib  _  _
+9  .  .  sent  sent  sent  8  punc  _  _

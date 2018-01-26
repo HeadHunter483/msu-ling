@@ -1,0 +1,11 @@
+1	треугольник	S	3	predik
+2	ABC	abr	1	atrib
+3	поделен	PARTCP	0	root
+4	медианами	S	3	agent
+5	на	PR	4	atrib
+6	три треугольника	num+s	5	kvaziagent
+7	равных	A	6	opred
+8	по площади	PR+S	7	predl
+9	.	SENT	8	punc
+				
+

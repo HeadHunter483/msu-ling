@@ -1,0 +1,7 @@
+1	вокруг треугольника	PR+S	1	predl
+2	прямоугольного	A	1	opred
+3	описана	PARTCP	0	root
+4	окружность	S	3	predik
+5	.	SENT	4	punc
+				
+

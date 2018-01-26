@@ -1,0 +1,10 @@
+1	боковые	A	2	opred
+2	стороны	S	4	predik
+3	трапеции	S	2	kvaziagent
+4	равны	A	0	root
+5	12 см	num+s	4	1-kompl
+6	и	CONJ	5	sochin
+7	15 см	num+s	4	1-kompl
+8	.	SENT	7	punc
+				
+

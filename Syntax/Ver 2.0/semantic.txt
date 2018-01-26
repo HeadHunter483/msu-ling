@@ -1,0 +1,19 @@
+1	треугольник	треугольник	S	S m inan acc sg	3	1-kompl
+2	abc	abc	NONLEX	NONLEX	1	atrib
+3	поделен	поделить	PARTCP	PARTCP pf praet - sg brev m pass -	0	root
+4	медианами	медиана	S	S f inan ins sg	3	1-kompl
+5	на	на	PR	PR	3	obst
+6	3	3	NUM	NUM - - -	10	kolichest
+7	равных	равный	A	A - gen pl plen - -	10	opred
+8	по	по	PR	PR	7	atrib
+9	площади	площадь	S	S f inan dat sg	8	predl
+10	треугольника	треугольник	S	S m inan gen sg	9	kvaziagent
+11	.	.	SENT	SENT	10	punc
+
+1	есть	быть	V	V ipf praes sg indic - 3p	0	root
+2	у	у	PR	PR	1	obst
+3	треугольника	треугольник	S	S m inan gen sg	2	predl
+4	3	3	NUM	NUM - - -	5	kolichest
+5	стороны	сторона	S	S f inan nom pl	1	predik
+6	.	.	SENT	SENT	5	punc
+
