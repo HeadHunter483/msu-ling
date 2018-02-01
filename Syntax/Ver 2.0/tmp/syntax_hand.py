@@ -306,7 +306,7 @@ for i in range(len(conll)):
                 break
                     
             j=j+1
-                     
+
 
 f=codecs.open("tmp2.txt","a","utf-8")
 i=0

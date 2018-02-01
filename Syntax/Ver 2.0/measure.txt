@@ -1,0 +1,6 @@
+см  m inan nonflex nonflex  _
+мм  m inan nonflex nonflex  _
+м  m inan nonflex nonflex  _	
+дм  m inan nonflex nonflex  _	
+км m inan nonflex nonflex  _
+градусов  m inan nonflex nonflex  _

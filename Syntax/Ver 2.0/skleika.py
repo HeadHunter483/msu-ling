@@ -76,24 +76,24 @@ while(i<(len(rows))):
             del rows[del_index+1]
             j=j+1
 
-    if rows[i][1]=="см" and rows[i-1][1].isdigit():
+    if rows[i][3]=="MEAS" and rows[i-1][1].isdigit():
         u=i-1
         while(flag2==1):
             if (rows[u][1].isdigit() or rows[u][1]=="и" or rows[u][1]=="," or rows[u][1]=="см"):
                 flag2=1
                 if (rows[u][1].isdigit()):
-                    rows[u][1]=rows[u][1]+" " +"см"
-                    rows[u][2]=rows[u][2]+" "+"см"
+                    rows[u][1]=rows[u][1]+" " +rows[i][1]
+                    rows[u][2]=rows[u][2]+" "+rows[i][1]
             else:
                 flag2=0
             u=u-1
 
-    if rows[i][1]=="см" and rows[i-1][3]=="NUM":
-        if not "см" in rows[i-1][1]:
-            rows[i-1][1]=rows[i-1][1]+" см"
-            rows[i-1][2]=rows[i-1][2]+" см"
+    if rows[i][3]=="MEAS" and rows[i-1][3]=="NUM":
+        if not "см" in rows[i-1][1] or "градусов" in rows[i-1][1]:
+            rows[i-1][1]=rows[i-1][1]+" "+str(rows[i][1])
+            rows[i-1][2]=rows[i-1][2]+" "+str(rows[i][1])
 
-    if rows[i][1]=="см":
+    if rows[i][3]=="MEAS":
         del rows[i]
 
     if rows[i][1]=='.' or rows[i][1]=='!' or rows[i][1]=='?':

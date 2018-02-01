@@ -156,7 +156,8 @@ repldict3={
 
 words=[]
 conll=[]
-problems_word=["равно","нее","стороной","боковыми","вокруг","прилежащими","касательная","секущая","окружности","заключенный","заключенная"]
+problems_word=[]
+measure=[]
 
 
 def split_line(text):
@@ -363,6 +364,24 @@ def spro_morph(string):
 
 
 os.chdir(path)
+f=open("morph_iskl.txt","r",encoding="utf-8")
+
+for line in f:
+    row=line.split('	')
+    problems_word.append(row)
+
+f.close()
+
+
+f=open("measure.txt","r",encoding="utf-8")
+
+for line in f:
+    row=line.split('  ')
+    measure.append(row)
+
+f.close()
+
+
 f=open("in.txt","r",encoding="utf-8") # открыли файл для чтения	
 line=f.read()
 split_line(line)
@@ -374,13 +393,14 @@ str1=''
 index=0
 
 
-
+flag=0
 for i in range(len(words)):
-    if (words[i] in problems_word):
-        index=give_index(words[i])
-        p=morph.parse(words[i])[index]
-    else:
-       p=morph.parse(words[i])[0]
+    for j in range(len(problems_word)):
+        if (words[i]==problems_word[j][0]):
+            p=morph.parse(words[i])[int(problems_word[j][1])]
+            break
+
+        p=morph.parse(words[i])[0]
        
     if (words[i]!='.' or words[i]!=',' or words[i]!='?' or words[i]!='!'):
         str1=str(i+1)+'	'+str(words[i])+'	'+str(p.normal_form)+'	'+str(p.tag.POS)+'	'+str(p.tag)+'	'+str(p.normalized.tag)+'	_'+'	_'+'	_'+'	_'+'\n'
@@ -468,10 +488,12 @@ for i in range(len(conll)):
     if conll[i][3]=="S":
         conll[i][4]=s_morph(conll[i][4])
 
-        if conll[i][1]=='см':
-            conll[i][2]='см'
+
+    for j in range(len(measure)):
+        if conll[i][1]==measure[j][0]:
             conll[i][3]='MEAS'
-            conll[i][4]=' m inan nonflex nonflex'
+            conll[i][4]=' '+str(measure[j][1])
+            break
             
     if conll[i][3]=="V":
         conll[i][4]=v_morph(conll[i][4])

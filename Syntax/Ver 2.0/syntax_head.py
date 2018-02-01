@@ -3,6 +3,7 @@ import re
 import sys
 import codecs
 import subprocess
+import time
 
 path = os.path.dirname(os.path.abspath(__file__))
 
@@ -89,8 +90,9 @@ def func_2(word,type_):
             j=index
             
             while(j<len(conll)): #длина ?
-                conll[j][0]=str(int(conll[j][0])+index)
-                conll[j][6]=str(int(conll[j][6])+index+1)
+                if (conll[j][6]!="_"): 
+                    conll[j][0]=str(int(conll[j][0])+index)
+                    conll[j][6]=str(int(conll[j][6])+index+1)
                 j=j+1
 
     root=0
@@ -422,17 +424,26 @@ f=codecs.open(path+"\\out.txt","a","utf-8")
 i=0
         
 for i in range(len(conll)):
+        if conll[i][6]=="_":
+            conll[i][6]="1"
+            conll[i][7]="wrong_link"
         f.write(str(i+1)+'	'+conll[i][1]+'	'+conll[i][2]+'	'+conll[i][3]+'	'+conll[i][4]+'	'+conll[i][5]+'	'+conll[i][6]+'	'+conll[i][7]+'	'+conll[i][8]+'	'+conll[i][9])
 
 f.write('\n')
 f.close()
 
 f=codecs.open(path+"\\semantic.txt","a","utf-8")
+f1=codecs.open(path+"\\log.txt","a","utf-8")
+
 i=0
 for i in range(len(conll)):
+    if (conll[i][6]=="_" and conll[i][7]=="_"):
+        f1.write('\nDate: '+time.strftime("%d/%m/%Y/%H:%M:%S")+"\n")
+        f1.write("1 "+str(conll[i-1])+"\n"+"2 "+str(conll[i])+"\n"+"3 "+str(conll[i+1]))
     #print(str(i+1)+'	'+conll[i][1]+'	'+conll[i][2]+'	'+conll[i][3]+'	'+conll[i][4]+'	'+conll[i][6]+'	'+conll[i][7]+'\n')
     f.write(str(i+1)+'	'+conll[i][1]+'	'+conll[i][2]+'	'+conll[i][3]+'	'+conll[i][4]+'	'+conll[i][6]+'	'+conll[i][7]+'\n')
 
+f1.close()
 f.write('\n')
 f.close()
 

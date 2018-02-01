@@ -1,3 +1,12 @@
+1	боковые	боковой	A	A - nom pl plen - -	2	opred
+2	стороны	сторона	S	S f inan nom pl	4	predik
+3	трапеции	трапеция	S	S f inan gen sg	2	kvaziagent
+4	равны	равный	A	A - - pl brev - -	0	root
+5	12 см	12 см	NUM	NUM - - -	4	kolichest
+6	и	и	CONJ	CONJ	5	sochin
+7	15 см	15 см	NUM	NUM - - -	4	kolichest
+8	.	.	SENT	SENT	7	punc
+
 1	треугольник	треугольник	S	S m inan acc sg	3	1-kompl
 2	abc	abc	NONLEX	NONLEX	1	atrib
 3	поделен	поделить	PARTCP	PARTCP pf praet - sg brev m pass -	0	root
@@ -9,6 +18,65 @@
 9	площади	площадь	S	S f inan dat sg	8	predl
 10	треугольника	треугольник	S	S m inan gen sg	9	kvaziagent
 11	.	.	SENT	SENT	10	punc
+
+1	вокруг	вокруг	PR	PR	4	obst
+2	прямоугольного	прямоугольный	A	A - gen sg plen m -	3	opred
+3	треугольника	треугольник	S	S m inan gen sg	1	predl
+4	описана	описать	PARTCP	PARTCP pf praet - sg brev f pass -	0	root
+5	окружность	окружность	S	S f inan acc sg	4	1-kompl
+6	.	.	SENT	SENT	5	punc
+
+1	найти	найти	V	V pf - - inf - -	0	root
+2	периметр	периметр	S	S m inan acc sg	1	1-kompl
+3	треугольника	треугольник	S	S m inan gen sg	2	kvaziagent
+4	abc	abc	NONLEX	NONLEX	3	atrib
+5	с	с	PR	PR	3	atrib
+6	длиной	длина	S	S f inan ins sg	5	predl
+7	стороны	сторона	S	S f inan gen sg	6	kvaziagent
+8	5 см	5 см	NUM	NUM - - -	6	kolichest
+9	.	.	SENT	SENT	8	punc
+
+1	отрезки	отрезка	S	S f inan nom pl	7	predik
+2	a	a	NONLEX	NONLEX	1	atrib
+3	,	,	,	, 	2	punc
+4	b	b	NONLEX	NONLEX	1	atrib
+5	и	и	CONJ	CONJ	4	sochin
+6	f	f	NONLEX	NONLEX	1	atrib
+7	пересекаются	пересекаться	V	V ipf praes pl indic - 3p	0	root
+8	в	в	PR	PR	7	obst
+9	точке	точка	S	S f inan loc sg	8	predl
+10	o	o	NONLEX	NONLEX	9	atrib
+11	.	.	SENT	SENT	10	punc
+
+1	дан	дать	PARTCP	PARTCP pf praet - sg brev m pass -	0	root
+2	прямоугольный	прямоугольный	A	A - acc sg plen m -	3	opred
+3	треугольник	треугольник	S	S m inan acc sg	1	1-kompl
+4	с	с	PR	PR	3	atrib
+5	гипотенузой	гипотенуза	S	S f inan ins sg	4	predl
+6	и	и	CONJ	CONJ	5	sochin
+7	прилежащими	прилежать	PARTCP	PARTCP ipf praes ins pl plen - act -	10	opred
+8	к	к	PR	PR	7	atrib
+9	ней	она	SPRO	SPRO sg 3p f dat	8	predl
+10	углами	угол	S	S m inan ins pl	4	predl
+11	alpha	alpha	NONLEX	NONLEX	10	atrib
+12	и	и	CONJ	CONJ	11	sochin
+13	beta	beta	NONLEX	NONLEX	10	atrib
+14	.	.	SENT	SENT	13	punc
+
+1	прямые	прямая	S	S f inan nom pl	5	predik
+2	a	a	NONLEX	NONLEX	1	atrib
+3	и	и	CONJ	CONJ	2	sochin
+4	b	b	NONLEX	NONLEX	1	atrib
+5	параллельны	параллельный	A	A - - pl brev - -	0	root
+6	.	.	SENT	SENT	5	punc
+
+1	найти	найти	V	V pf - - inf - -	0	root
+2	площадь	площадь	S	S f inan acc sg	1	1-kompl
+3	окружности	окружность	S	S f inan gen sg	2	kvaziagent
+4	с	с	PR	PR	3	atrib
+5	радиусом	радиус	S	S m inan ins sg	4	predl
+6	3 см	3 см	NUM	NUM - - -	5	kolichest
+7	.	.	SENT	SENT	6	punc
 
 1	есть	быть	V	V ipf praes sg indic - 3p	0	root
 2	у	у	PR	PR	1	obst

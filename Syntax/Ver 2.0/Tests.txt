@@ -1,0 +1,316 @@
+1	боковые	боковой	A	A - nom pl plen - -	2	opred
+2	стороны	сторона	S	S f inan nom pl	4	predik
+3	трапеции	трапеция	S	S f inan gen sg	2	kvaziagent
+4	равны	равный	A	A - - pl brev - -	0	root
+5	12 см	12 см	NUM	NUM - - -	4	kolichest
+6	и	и	CONJ	CONJ	5	sochin
+7	15 см	15 см	NUM	NUM - - -	4	kolichest
+8	.	.	SENT	SENT	7	punc
+
+1	треугольник	треугольник	S	S m inan acc sg	3	1-kompl
+2	abc	abc	NONLEX	NONLEX	1	atrib
+3	поделен	поделить	PARTCP	PARTCP pf praet - sg brev m pass -	0	root
+4	медианами	медиана	S	S f inan ins sg	3	1-kompl
+5	на	на	PR	PR	3	obst
+6	3	3	NUM	NUM - - -	10	kolichest
+7	равных	равный	A	A - gen pl plen - -	10	opred
+8	по	по	PR	PR	7	atrib
+9	площади	площадь	S	S f inan dat sg	8	predl
+10	треугольника	треугольник	S	S m inan gen sg	9	kvaziagent
+11	.	.	SENT	SENT	10	punc
+
+1	вокруг	вокруг	PR	PR	4	obst
+2	прямоугольного	прямоугольный	A	A - gen sg plen m -	3	opred
+3	треугольника	треугольник	S	S m inan gen sg	1	predl
+4	описана	описать	PARTCP	PARTCP pf praet - sg brev f pass -	0	root
+5	окружность	окружность	S	S f inan acc sg	4	1-kompl
+6	.	.	SENT	SENT	5	punc
+
+1	найти	найти	V	V pf - - inf - -	0	root
+2	периметр	периметр	S	S m inan acc sg	1	1-kompl
+3	треугольника	треугольник	S	S m inan gen sg	2	kvaziagent
+4	abc	abc	NONLEX	NONLEX	3	atrib
+5	с	с	PR	PR	3	atrib
+6	длиной	длина	S	S f inan ins sg	5	predl
+7	стороны	сторона	S	S f inan gen sg	6	kvaziagent
+8	5 см	5 см	NUM	NUM - - -	6	kolichest
+9	.	.	SENT	SENT	8	punc
+
+1	отрезки	отрезка	S	S f inan nom pl	7	predik
+2	a	a	NONLEX	NONLEX	1	atrib
+3	,	,	,	, 	2	punc
+4	b	b	NONLEX	NONLEX	1	atrib
+5	и	и	CONJ	CONJ	4	sochin
+6	f	f	NONLEX	NONLEX	1	atrib
+7	пересекаются	пересекаться	V	V ipf praes pl indic - 3p	0	root
+8	в	в	PR	PR	7	obst
+9	точке	точка	S	S f inan loc sg	8	predl
+10	o	o	NONLEX	NONLEX	9	atrib
+11	.	.	SENT	SENT	10	punc
+
+1	дан	дать	PARTCP	PARTCP pf praet - sg brev m pass -	0	root
+2	прямоугольный	прямоугольный	A	A - acc sg plen m -	3	opred
+3	треугольник	треугольник	S	S m inan acc sg	1	1-kompl
+4	с	с	PR	PR	3	atrib
+5	гипотенузой	гипотенуза	S	S f inan ins sg	4	predl
+6	и	и	CONJ	CONJ	5	sochin
+7	прилежащими	прилежать	PARTCP	PARTCP ipf praes ins pl plen - act -	10	opred
+8	к	к	PR	PR	7	atrib
+9	ней	она	SPRO	SPRO sg 3p f dat	8	predl
+10	углами	угол	S	S m inan ins pl	4	predl
+11	alpha	alpha	NONLEX	NONLEX	10	atrib
+12	и	и	CONJ	CONJ	11	sochin
+13	beta	beta	NONLEX	NONLEX	10	atrib
+14	.	.	SENT	SENT	13	punc
+
+1	прямые	прямая	S	S f inan nom pl	5	predik
+2	a	a	NONLEX	NONLEX	1	atrib
+3	и	и	CONJ	CONJ	2	sochin
+4	b	b	NONLEX	NONLEX	1	atrib
+5	параллельны	параллельный	A	A - - pl brev - -	0	root
+6	.	.	SENT	SENT	5	punc
+
+1	найти	найти	V	V pf - - inf - -	0	root
+2	площадь	площадь	S	S f inan acc sg	1	1-kompl
+3	окружности	окружность	S	S f inan gen sg	2	kvaziagent
+4	с	с	PR	PR	3	atrib
+5	радиусом	радиус	S	S m inan ins sg	4	predl
+6	3 см	3 см	NUM	NUM - - -	5	kolichest
+7	.	.	SENT	SENT	6	punc
+
+1	есть	быть	V	V ipf praes sg indic - 3p	0	root
+2	у	у	PR	PR	1	obst
+3	треугольника	треугольник	S	S m inan gen sg	2	predl
+4	3	3	NUM	NUM - - -	5	kolichest
+5	стороны	сторона	S	S f inan nom pl	1	predik
+6	.	.	SENT	SENT	5	punc
+
+1	найти	найти	V	V pf - - inf - -	0	root
+2	высоту	высота	S	S f inan acc sg	1	1-kompl
+3	трапеции	трапеция	S	S f inan gen sg	2	kvaziagent
+4	,	,	,	, 	3	punc
+5	если	если	CONJ	CONJ	1	podch_soyuzn
+6	ее	она	SPRO	SPRO sg 3p f gen	8	opred
+7	меньшая	меньший	A	A - nom sg plen f -	8	opred
+8	диагональ	диагональ	S	S f inan nom sg	9	predik
+9	равна	равный	A	A - - sg brev f -	5	unkn
+10	большему	больший	A	A - dat sg plen n -	11	opred
+11	основанию	основание	S	S n inan dat sg	9	1-kompl
+12	.	.	SENT	SENT	11	punc
+
+1	даны	дать	PARTCP	PARTCP pf praet - pl brev - pass -	0	root
+2	стороны	сторона	S	S f inan acc pl	1	1-kompl
+3	a	a	NONLEX	NONLEX	2	atrib
+4	,	,	,	, 	3	punc
+5	b	b	NONLEX	NONLEX	2	atrib
+6	,	,	,	, 	5	punc
+7	c	c	NONLEX	NONLEX	2	atrib
+8	и	и	CONJ	CONJ	7	sochin
+9	d	d	NONLEX	NONLEX	2	atrib
+10	четырехугольника	четырёхугольник	S	S m inan gen sg	2	kvaziagent
+11	,	,	,	, 	10	punc
+12	вписанного	вписать	PARTCP	PARTCP pf praet gen sg plen m pass -	10	opred
+13	в	в	PR	PR	12	obst
+14	окружность	окружность	S	S f inan loc sg	13	predl
+15	.	.	SENT	SENT	14	punc
+
+1	общая	общий	A	A - nom sg plen f -	3	opred
+2	внешняя	внешний	A	A - nom sg plen f -	3	opred
+3	касательная	касательная	S	S f inan nom sg	8	predik
+4	2	2	NUM	NUM - - -	6	kolichest
+5	внешне	внешне	ADV	ADV -	6	unkn_link_for_adv
+6	касающихся	касаться	PARTCP	PARTCP ipf praes nom pl plen - act -	7	opred
+7	окружностей	окружность	S	S f inan nom sg	8	predik
+8	составляет	составлять	V	V ipf praes sg indic - 3p	0	root
+9	с	с	PR	PR	7	atrib
+10	линией	линия	S	S f inan ins sg	9	predl
+11	центров	центр	S	S m inan gen pl	10	kvaziagent
+12	угол	угол	S	S m inan acc sg	8	1-kompl
+13	45 градусов градусов	45 градусов градусов	NUM	NUM - - -	10	kolichest
+14	.	.	SENT	SENT	13	punc
+
+1	есть	быть	V	V ipf praes sg indic - 3p	0	root
+2	длина	длина	S	S f inan nom sg	1	predik
+3	стороны	сторона	S	S f inan gen sg	2	kvaziagent
+4	3 см	3 см	NUM	NUM - - -	2	kolichest
+5	.	.	SENT	SENT	4	punc
+
+1	периметр	периметр	S	S m inan nom sg	5	predik
+2	треугольника	треугольник	S	S m inan gen sg	1	kvaziagent
+3	abc	abc	NONLEX	NONLEX	2	atrib
+4	,	,	,	, 	3	punc
+5	равен	равный	A	A - - sg brev m -	0	root
+6	4 см	4 см	NUM	NUM - - -	5	kolichest
+7	вписанного	вписать	PARTCP	PARTCP pf praet gen sg plen m pass -	2	opred
+8	в	в	PR	PR	7	obst
+9	окружность	окружность	S	S f inan loc sg	8	predl
+10	o	o	NONLEX	NONLEX	9	atrib
+11	с	с	PR	PR	9	atrib
+12	радиусом	радиус	S	S m inan ins sg	11	predl
+13	4 см	4 см	NUM	NUM - - -	12	kolichest
+14	,	,	,	, 	13	punc
+15	.	.	SENT	SENT	6	punc
+
+1	площадь	площадь	S	S f inan nom sg	10	predik
+2	прямоугольной	прямоугольный	A	A - gen sg plen f -	3	opred
+3	трапеции	трапеция	S	S f inan gen sg	1	kvaziagent
+4	равна	равный	A	A - - sg brev f -	0	root
+5	15 см	15 см	NUM	NUM - - -	4	kolichest
+6	.	.	SENT	SENT	5	punc
+1	Острый	острый	A	A - dat sg plen m -	2	opred
+2	угол	угол	S	S m inan dat sg	3	predik
+3	равен	равный	A	A - - sg brev m -	0	root
+4	30 градусов градусов	30 градусов градусов	NUM	NUM - - -	3	kolichest
+5	.	.	SENT	SENT	4	punc
+
+1	найти	найти	V	V pf - - inf - -	0	root
+2	высоту	высота	S	S f inan acc sg	1	1-kompl
+3	трапеции	трапеция	S	S f inan gen sg	2	kvaziagent
+4	,	,	,	, 	3	punc
+5	если	если	CONJ	CONJ	1	podch_soyuzn
+6	ее	она	SPRO	SPRO sg 3p f gen	8	opred
+7	меньшая	меньший	A	A - nom sg plen f -	8	opred
+8	диагональ	диагональ	S	S f inan nom sg	9	predik
+9	равна	равный	A	A - - sg brev f -	5	unkn
+10	большему	больший	A	A - dat sg plen n -	11	opred
+11	основанию	основание	S	S n inan dat sg	9	1-kompl
+12	.	.	SENT	SENT	11	punc
+
+1	даны	дать	PARTCP	PARTCP pf praet - pl brev - pass -	0	root
+2	стороны	сторона	S	S f inan acc pl	1	1-kompl
+3	a	a	NONLEX	NONLEX	2	atrib
+4	,	,	,	, 	3	punc
+5	b	b	NONLEX	NONLEX	2	atrib
+6	,	,	,	, 	5	punc
+7	c	c	NONLEX	NONLEX	2	atrib
+8	и	и	CONJ	CONJ	7	sochin
+9	d	d	NONLEX	NONLEX	2	atrib
+10	четырехугольника	четырёхугольник	S	S m inan gen sg	2	kvaziagent
+11	,	,	,	, 	10	punc
+12	вписанного	вписать	PARTCP	PARTCP pf praet gen sg plen m pass -	10	opred
+13	в	в	PR	PR	12	obst
+14	окружность	окружность	S	S f inan loc sg	13	predl
+15	.	.	SENT	SENT	14	punc
+
+1	общая	общий	A	A - nom sg plen f -	3	opred
+2	внешняя	внешний	A	A - nom sg plen f -	3	opred
+3	касательная	касательная	S	S f inan nom sg	8	predik
+4	2	2	NUM	NUM - - -	6	kolichest
+5	внешне	внешне	ADV	ADV -	6	unkn_link_for_adv
+6	касающихся	касаться	PARTCP	PARTCP ipf praes nom pl plen - act -	7	opred
+7	окружностей	окружность	S	S f inan nom sg	8	predik
+8	составляет	составлять	V	V ipf praes sg indic - 3p	0	root
+9	с	с	PR	PR	7	atrib
+10	линией	линия	S	S f inan ins sg	9	predl
+11	центров	центр	S	S m inan gen pl	10	kvaziagent
+12	угол	угол	S	S m inan acc sg	8	1-kompl
+13	45 градусов градусов	45 градусов градусов	NUM	NUM - - -	10	kolichest
+14	.	.	SENT	SENT	13	punc
+
+1	найти	найти	V	V pf - - inf - -	0	root
+2	отношение	отношение	S	S n inan acc sg	1	1-kompl
+3	радиусов	радиус	S	S m inan gen pl	2	kvaziagent
+4	окружностей	окружность	S	S f inan gen pl	3	kvaziagent
+5	.	.	SENT	SENT	4	punc
+
+1	в	в	PR	PR	9	obst
+2	ромб	ромб	S	S m inan loc sg	1	predl
+3	abcd	abcd	NONLEX	NONLEX	2	atrib
+4	и	и	CONJ	CONJ	2	sochin
+5	в	в	PR	PR	9	obst
+6	треугольник	треугольник	S	S m inan loc sg	5	predl
+7	abc	abc	NONLEX	NONLEX	6	atrib
+8	,	,	,	, 	7	punc
+9	вписаны	вписать	PARTCP	PARTCP pf praet - pl brev - pass -	0	root
+10	окружности	окружность	S	S f inan acc pl	9	1-kompl
+11	содержащий	содержимый	PARTCP	PARTCP ipf praes acc sg plen m act -	10	opred
+12	его	он	SPRO	SPRO sg 3p m gen	14	opred
+13	большую	большой	A	A - acc sg plen f -	14	opred
+14	диагональ	диагональ	S	S f inan acc pl	11	1-kompl
+15	,	,	,	, 	14	punc
+16	.	.	SENT	SENT	10	punc
+
+1	найти	найти	V	V pf - - inf - -	0	root
+2	отношение	отношение	S	S n inan acc sg	1	1-kompl
+3	радиусов	радиус	S	S m inan gen pl	2	kvaziagent
+4	этих	этот	A	A - gen pl plen - -	5	opred
+5	окружностей	окружность	S	S f inan gen pl	3	kvaziagent
+6	,	,	,	, 	5	punc
+7	если	если	CONJ	CONJ	1	podch_soyuzn
+8	острый	острый	A	A - acc sg plen m -	9	opred
+9	угол	угол	S	S m inan acc sg	11	1-kompl
+10	ромба	ромб	S	S m inan gen sg	9	kvaziagent
+11	равен	равный	A	A - - sg brev m -	7	unkn
+12	34	34	NUM	NUM - - -	11	kolichest
+13	.	.	SENT	SENT	12	punc
+
+1	в	в	PR	PR	3	obst
+2	треугольнике	треугольник	S	S m inan loc sg	1	predl
+3	даны	дать	PARTCP	PARTCP pf praet - pl brev - pass -	0	root
+4	длины	длина	S	S f inan acc pl	3	1-kompl
+5	2	2	NUM	NUM - - -	6	kolichest
+6	сторон	сторона	S	S f inan gen pl	4	kvaziagent
+7	a	a	NONLEX	NONLEX	6	atrib
+8	и	и	CONJ	CONJ	7	sochin
+9	b	b	NONLEX	NONLEX	6	atrib
+10	и	и	CONJ	CONJ	4	sochin
+11	угол	угол	S	S m inan acc sg	3	1-kompl
+12	26	26	NUM	NUM - - -	11	kolichest
+13	.	.	SENT	SENT	12	punc
+
+1	в	в	PR	PR	7	obst
+2	равнобедренном	равнобедренный	A	A - loc sg plen m -	3	opred
+3	треугольнике	треугольник	S	S m inan loc sg	1	predl
+4	угол	угол	S	S m inan acc sg	7	1-kompl
+5	при	при	PR	PR	4	atrib
+6	основании	основание	S	S n inan loc sg	5	predl
+7	равен	равный	A	A - - sg brev m -	0	root
+8	57	57	NUM	NUM - - -	7	kolichest
+9	.	.	SENT	SENT	8	punc
+
+1	найти	найти	V	V pf - - inf - -	0	root
+2	отношение	отношение	S	S n inan acc sg	1	1-kompl
+3	площади	площадь	S	S f inan gen sg	2	kvaziagent
+4	треугольника	треугольник	S	S m inan gen sg	3	kvaziagent
+5	к	к	PR	PR	1	obst
+6	площади	площадь	S	S f inan dat sg	5	predl
+7	описанного	описать	PARTCP	PARTCP pf praet gen sg plen m pass -	10	opred
+8	около	около	PR	PR	7	atrib
+9	нее	она	SPRO	SPRO sg 3p f gen	8	predl
+10	круга	круг	S	S m inan gen sg	6	kvaziagent
+11	.	.	SENT	SENT	10	punc
+
+1	на	на	PR	PR	6	obst
+2	меньшем	меньший	A	A - acc sg plen n -	3	opred
+3	основании	основание	S	S n inan acc sg	1	predl
+4	равнобедренной	равнобедренный	A	A - acc sg plen f -	5	opred
+5	трапеции	трапеция	S	S f inan acc sg	6	1-kompl
+6	построен	построить	PARTCP	PARTCP pf praet - sg brev m pass -	0	root
+7	правильный	правильный	A	A - acc sg plen m inan	8	opred
+8	треугольник	треугольник	S	S m inan acc sg	6	1-kompl
+9	.	.	SENT	SENT	8	punc
+
+1	его	он	SPRO	SPRO sg 3p m gen	2	opred
+2	высота	высота	S	S f inan nom sg	3	predik
+3	равна	равный	A	A - - sg brev f -	0	root
+4	высоте	высота	S	S f inan gen sg	3	1-kompl
+5	трапеции	трапеция	S	S f inan gen sg	4	kvaziagent
+6	,	,	,	, 	5	punc
+7	а	а	CONJ	CONJ	3	podch_soyuzn
+8	площадь	площадь	S	S f inan nom sg	12	predik
+9	в	в	PR	PR	12	obst
+10	5	5	NUM	NUM - - -	13	kolichest
+11	раз	раз	S	S m inan loc sg	9	predl
+12	меньше	маленький	A	A - - sg brev - -	7	unkn
+13	площади	площадь	S	S f inan gen sg	11	kvaziagent
+14	трапеции	трапеция	S	S f inan gen sg	13	kvaziagent
+15	.	.	SENT	SENT	14	punc
+
+1	найти	найти	V	V pf - - inf - -	0	root
+2	угол	угол	S	S m inan acc sg	1	1-kompl
+3	при	при	PR	PR	2	atrib
+4	большем	больший	A	A - loc sg plen n -	5	opred
+5	основании	основание	S	S n inan loc sg	3	predl
+6	трапеции	трапеция	S	S f inan gen sg	5	kvaziagent
+7	.	.	SENT	SENT	6	punc
+
