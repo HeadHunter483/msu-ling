@@ -1,0 +1,32 @@
+﻿в	acc	loc	root
+к	dat	No	p
+по	dat	loc	p
+вокруг	gen	No	root	
+без	gen	No	root
+на	acc	No	s
+у	gen	No	root
+до 	gen	No	root
+от	gen	No	root
+с	ins	gen	s
+со	ins	gen	s
+между	ins	gen	root
+около 	gen	No	p
+из	gen	No	root
+возле	gen	No	root
+после	gen	No	root
+для	gen	No	root
+за	acc	ins	root
+про	acc	No	root
+через	acc	No	root
+над	ins	No	root
+под	ins	No	root
+перед	ins	No	root
+о	loc	No	root
+об	loc	No	root
+обо	loc	No	root
+при	loc	No	s
+		
+		
+		
+		
+		

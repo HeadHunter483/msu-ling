@@ -1,0 +1,5 @@
+1	вписанной	вписать	PARTCP	PARTCP pf praet nom sg plen f pass -	PARTCP pf praet nom sg plen f pass -	0	root	_	_
+2	в	в	PR	PR	PR	_	_	_	_
+3	этот	этот	A	A - acc sg plen m inan	A - acc sg plen m inan	_	_	_	_
+4	треугольник	треугольник	S	S m inan acc sg	S m inan acc sg	_	_	_	_
+5	.	.	SENT	SENT	SENT	_	_	_	_
