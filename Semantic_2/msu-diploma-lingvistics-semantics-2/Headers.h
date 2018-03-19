@@ -18,6 +18,7 @@
 #define WRONG_DATA 1
 #define FILE_OPEN_ERROR 2
 #define INDEX_OUT_OF_RANGE 3
+#define ARGS_ERROR 4
 
 // DICT TYPES DEFINITIONS
 #define OPER "OPER"	// operator (e.g.: +, -, =, ...)

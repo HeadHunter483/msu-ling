@@ -297,13 +297,13 @@ void Dict::read_dict_from_file(const string&filename, Dict*dict) {
 			tmp.~DictToken();
 		}
 	}
-	for (int i = 0; i < this->dict.size(); i++) {
-		for (int j = 0; j < this->dict.size(); j++) {
+	for (size_t i = 0; i < this->dict.size(); i++) {
+		for (size_t j = 0; j < this->dict.size(); j++) {
 			if (this->dict[i].getId() == this->dict[j].getParent()) {
-				int size_of_child = this->dict[j].getPropSize();
-				int size_of_parent = this->dict[i].getPropSize();
-				for (int k = 0; k < size_of_child; k++) {
-					for (int l = 0; l < size_of_parent; l++) {
+				size_t size_of_child = this->dict[j].getPropSize();
+				size_t size_of_parent = this->dict[i].getPropSize();
+				for (size_t k = 0; k < size_of_child; k++) {
+					for (size_t l = 0; l < size_of_parent; l++) {
 						if (this->dict[i].getPropByNum(l) != this->dict[j].getPropByNum(k)) {
 							this->dict[j].addProp(this->dict[i].getPropByNum(l));
 							this->dict[j].setPropVal(this->dict[j].getPropSize() - 1, this->dict[i].getPropByNum(l));

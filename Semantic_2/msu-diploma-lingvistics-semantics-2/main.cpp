@@ -6,6 +6,7 @@ int test() {
 	int ret_code = 0;
 	ifstream fin(config["fin"]);
 	ofstream fout(config["fout"]);
+	string result = "";
 	vector<string>token;
 	SemTree tree(fin);
 
@@ -13,18 +14,25 @@ int test() {
 
 	tree.analysis();
 
-	cout << "\nresult of semantic analysis:\n\n" << tree.buildResult();
+	result = tree.buildResult();
+
+	cout << "\nresult of semantic analysis:\n\n" << result;
 
 	cout << "test finished\n";
 
-	system("pause");
+	fout << result;
 
+	// system("pause");
+	fin.close();
+	fout.close();
 	return ret_code;
 }
 
 int main(const int argc, const char**argv) {
 	setlocale(LC_ALL, "rus_rus.1251");
 	parse_ini();
-	read_args(argc, argv);
+	if (read_args(argc, argv)) {
+		return ARGS_ERROR;
+	}
 	return test();
 }

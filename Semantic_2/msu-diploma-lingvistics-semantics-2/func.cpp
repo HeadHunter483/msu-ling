@@ -74,9 +74,19 @@ vector<string> str_split(const string&str, char splitter) {
 
 int read_args(const int argc, const char**argv) {
 	vector<string>args(argc, "");
-	for (int i = 0; i < argc; i++) {
+	if (argc > 3) {
+		cerr << "error: program takes no more than 2 arguments (filename_in, filename_out)\n";
+		return ARGS_ERROR;
+	}
+	for (int i = 1; i < argc; i++) {
 		for (size_t j = 0; j < strlen(argv[i]); j++)
 			args[i].push_back(argv[i][j]);			// pushing argv into vector of strings
+	}
+	if (argc > 1) {
+		config["fin"] = args[1];
+	}
+	if (argc > 2) {
+		config["fout"] = args[2];
 	}
 	return 0;
 }
