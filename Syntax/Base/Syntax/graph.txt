@@ -1,0 +1,9 @@
+1	найдите	найти	V	V pf - pl imper - -	0	root
+2	радиус	радиус	S	S m inan acc pl	1	1-kompl
+3	окружности	окружность	S	S f inan gen sg	2	kvaziagent
+4	,	,	,	, 	3	punc
+5	вписанной	вписать	PARTCP	PARTCP pf praet nom sg plen f pass -	3	opred
+6	в	в	PR	PR	5	obst
+7	этот	этот	A	A - acc sg plen m inan	8	opred
+8	треугольник	треугольник	S	S m inan acc sg	6	predl
+9	.	.	SENT	SENT	8	punc

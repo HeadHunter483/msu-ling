@@ -1,0 +1,73 @@
+1	сумма	сумма	S	S f inan nom sg	7	predic
+2	2	2	NUM	NUM - - -	4	kolichest
+3	противоположных	противоположный	A	A - gen pl plen - -	4	opred
+4	сторон	сторона	S	S f inan gen pl	1	kvaziagent
+5	описанного	описать	PARTCP	PARTCP pf praet gen sg plen m pass -	6	opred
+6	четырехугольника	четырёхугольник	S	S m inan gen sg	4	kvaziagent
+7	равна	равный	A	A - - sg brev f -	0	root
+8	15 см	15 см	NUM	NUM - - -	7	kolichest
+9	.	.	SENT	SENT	8	punc
+
+1	найдите	найти	V	V pf - pl imper - -	0	root
+2	периметр	периметр	S	S m inan acc pl	1	1-kompl
+3	этого	это	SPRO	SPRO sg - n gen	4	opred
+4	четырехугольника	четырёхугольник	S	S m inan gen sg	2	kvaziagent
+5	.	.	SENT	SENT	4	punc
+
+1	докажите	доказать	V	V pf - pl imper - -	0	root
+2	,	,	,	, 	1	punc
+3	что	что	CONJ	CONJ	1	sochin
+4	в	в	PR	PR	8	obst
+5	любой	любая	SPRO	SPRO sg - f gen	6	opred
+6	ромб	ромб	S	S m inan acc sg	4	predl
+7	можно	можно	ADV	ADV -	8	advlink
+8	вписать	вписать	V	V pf - - inf - -	3	podch-soyuzn
+9	окружность	окружность	S	S f inan acc sg	8	1-kompl
+10	.	.	SENT	SENT	9	punc
+
+1	найдите	найти	V	V pf - pl imper - -	0	root
+2	диаметр	диаметр	S	S m inan acc pl	1	1-kompl
+3	окружности	окружность	S	S f inan gen sg	2	kvaziagent
+4	,	,	,	, 	3	punc
+5	вписанной	вписать	PARTCP	PARTCP pf praet nom sg plen f pass -	3	opred
+6	в	в	PR	PR	5	obst
+7	прямоугольный	прямоугольный	A	A - acc sg plen m -	8	opred
+8	треугольник	треугольник	S	S m inan acc sg	6	predl
+9	,	,	,	, 	8	punc
+10	если	если	CONJ	CONJ	1	sochin
+11	гипотенуза	гипотенуза	S	S f inan nom sg	13	predic
+12	треугольника	треугольник	S	S m inan gen sg	11	kvaziagent
+13	равна	равный	A	A - - sg brev f -	10	podch-soyuzn
+14	c	c	NONLEX	NONLEX	13	1-kompl
+15	,	,	,	, 	14	punc
+16	а	а	CONJ	CONJ	13	sochin
+17	сумма	сумма	S	S f inan nom sg	19	predic
+18	катетов	катет	S	S m inan gen pl	17	kvaziagent
+19	равна	равный	A	A - - sg brev f -	16	podch-soyuzn
+20	m	m	NONLEX	NONLEX	19	1-kompl
+21	.	.	SENT	SENT	20	punc
+
+1	в	в	PR	PR	5	obst
+2	равнобедренном	равнобедренный	A	A - acc sg plen m -	3	opred
+3	треугольнике	треугольник	S	S m inan acc sg	1	predl
+4	основание	основание	S	S n inan nom sg	5	predic
+5	равно	равный	A	A - - sg brev n -	0	root
+6	10 см	10 см	NUM	NUM - - -	5	kolichest
+7	,	,	,	, 	6	punc
+8	а	а	CONJ	CONJ	5	sochin
+9	боковая	боковой	A	A - nom sg plen f -	10	opred
+10	сторона	сторона	S	S f inan nom sg	11	predic
+11	равна	равный	A	A - - sg brev f -	8	podch-soyuzn
+12	13 см	13 см	NUM	NUM - - -	11	kolichest
+13	.	.	SENT	SENT	12	punc
+
+1	найдите	найти	V	V pf - pl imper - -	0	root
+2	радиус	радиус	S	S m inan acc pl	1	1-kompl
+3	окружности	окружность	S	S f inan gen sg	2	kvaziagent
+4	,	,	,	, 	3	punc
+5	вписанной	вписать	PARTCP	PARTCP pf praet nom sg plen f pass -	3	opred
+6	в	в	PR	PR	5	obst
+7	этот	этот	A	A - acc sg plen m inan	8	opred
+8	треугольник	треугольник	S	S m inan acc sg	6	predl
+9	.	.	SENT	SENT	8	punc
+
