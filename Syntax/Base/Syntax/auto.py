@@ -109,7 +109,7 @@ for i in range(len(mas)):
     if (show==1):
         print('\n  Этап V. Этап работы с неделимыми выражениями:\n ')
 
-    subprocess_cmd('python skleika.py ')
+    subprocess_cmd('python skleika.py morph.txt morph.txt')
     
     if (show==1):
         print('\n  Этап VI. Синтаксический анализ :\n ')
@@ -120,7 +120,7 @@ for i in range(len(mas)):
         print('\n  Этап VII. Визуализация синтаксического графа:\n ')
 
     if (graph==1):
-        subprocess_cmd('python graph.py tree'+str(i+1))
+        subprocess_cmd('python graph.py tree '+str(i+1))
         
 
 os.chdir(path)   # переходим в родительскую директорию
