@@ -1,5 +1,6 @@
 import os
 import codecs
+import sys
 
 buff=[]
 new_buff=[]
@@ -7,7 +8,12 @@ dict=[]
 
 path = os.path.dirname(os.path.abspath(__file__))
 
-f=open(path+"\\tmp\\morph.txt","r",encoding="utf-8")
+if __name__ == "__main__":
+    in_name=sys.argv[1]
+    out_name=sys.argv[2]
+
+
+f=open(path+"\\tmp\\"+in_name,"r",encoding="utf-8")
 f2=open(path+"\\tmp\\dict.txt","r",encoding="utf-8")
 
 
@@ -110,7 +116,7 @@ while(i<(len(rows))):
 
 f.close()
 
-f=codecs.open(path+"\\tmp\\morph.txt","w","utf-8")
+f=codecs.open(path+"\\tmp\\"+out_name,"w","utf-8")
 i=0
 
 for i in range(len(rows)):
