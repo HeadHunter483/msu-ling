@@ -6,10 +6,9 @@ new_buff=[]
 dict=[]
 
 path = os.path.dirname(os.path.abspath(__file__))
-os.chdir(path+"\\tmp")
 
-f=open("in_raw.conll","r",encoding="utf-8")
-f2=open("dict.txt","r",encoding="utf-8")
+f=open(path+"\\tmp\\morph.txt","r",encoding="utf-8")
+f2=open(path+"\\tmp\\dict.txt","r",encoding="utf-8")
 
 
 for line in f2:
@@ -111,11 +110,10 @@ while(i<(len(rows))):
 
 f.close()
 
-f=codecs.open("in_raw.conll","w","utf-8")
+f=codecs.open(path+"\\tmp\\morph.txt","w","utf-8")
 i=0
 
 for i in range(len(rows)):
-    print(str(i+1)+'	'+rows[i][1]+'	'+rows[i][2]+'	'+rows[i][3]+'	'+rows[i][4]+'	'+rows[i][5]+'	'+rows[i][6]+'	'+rows[i][7]+'	'+rows[i][8]+'	'+rows[i][9])
     f.write(str(i+1)+'	'+rows[i][1]+'	'+rows[i][2]+'	'+rows[i][3]+'	'+rows[i][4]+'	'+rows[i][5]+'	'+rows[i][6]+'	'+rows[i][7]+'	'+rows[i][8]+'	'+rows[i][9])
 
 f.close()

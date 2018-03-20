@@ -44,14 +44,14 @@ if (int(show)==1):
     print('3.1.Удаление результатов работы предыдущего запуска:')
 
 os.chdir(path)
-func('out.txt','	Удаление выходного файла:')
-func('semantic.txt','	Удаление файла для семантики:')
+func('syntax.txt','	Удаление файла для семантики:')
 
 if (mode=="test"):
     func('test_results.txt','	Удаление данных тестирования:')
 
 os.chdir(path+'/tmp')
-func('in_raw.conll','	Удаление файлов in_raw.conll:')
+func('morph.txt','	Удаление файлов in_raw.conll:')
+func('tmp2.txt','')
 func('tmp3.txt','')
 
 if (int(show)==1):

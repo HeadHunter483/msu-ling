@@ -1,9 +1,6 @@
-1	найдите	найти	V	V pf - pl imper - -	V pf - pl imper - -	0	root	_	_
-2	радиус	радиус	S	S m inan acc pl	S m inan acc pl	1	1-kompl	_	_
-3	окружности	окружность	S	S f inan gen sg	S f inan gen sg	2	kvaziagent	_	_
-4	,	,	,	, 	PUNC	3	punc	_	_
-1	вписанной	вписать	PARTCP	PARTCP pf praet nom sg plen f pass -	PARTCP pf praet nom sg plen f pass -	0	root	_	_
-2	в	в	PR	PR	PR	1	obst	_	_
-3	этот	этот	A	A - acc sg plen m inan	A - acc sg plen m inan	4	opred	_	_
-4	треугольник	треугольник	S	S m inan acc sg	S m inan acc sg	2	predl	_	_
-5	.	.	SENT	SENT	SENT	4	punc	_	_
+1	а	а	CONJ	CONJ	CONJ	4	sochin	_	_
+2	сумма	сумма	S	S f inan nom sg	S f inan nom sg	4	predic	_	_
+3	катетов	катет	S	S m inan gen pl	S m inan gen pl	2	kvaziagent	_	_
+4	равна	равный	A	A - - sg brev f -	A - - sg brev f -	0	root	_	_
+5	m	m	NONLEX	NONLEX	NONLEX	3	atrib	_	_
+6	.	.	SENT	SENT	SENT	5	punc	_	_

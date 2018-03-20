@@ -6,6 +6,10 @@ import codecs
 
 path = os.path.dirname(os.path.abspath(__file__))
 
+if __name__ == "__main__":
+    in_name=sys.argv[1]
+    out_name=sys.argv[2]
+    
 repldict = {
 'NOUN':'S',#сущ
 'ADJF':'A',#прил полн
@@ -363,8 +367,7 @@ def spro_morph(string):
     return str5    
 
 
-os.chdir(path)
-f=open("morph_iskl.txt","r",encoding="utf-8")
+f=open(path+"\\tmp\\morph_iskl.txt","r",encoding="utf-8")
 
 for line in f:
     row=line.split('	')
@@ -373,7 +376,7 @@ for line in f:
 f.close()
 
 
-f=open("measure.txt","r",encoding="utf-8")
+f=open(path+"\\tmp\\measure.txt","r",encoding="utf-8")
 
 for line in f:
     row=line.split('  ')
@@ -382,7 +385,8 @@ for line in f:
 f.close()
 
 
-f=open("in.txt","r",encoding="utf-8") # открыли файл для чтения	
+
+f=open(in_name,"r",encoding="utf-8") # открыли файл для чтения	
 line=f.read()
 split_line(line)
 morph=pymorphy2.MorphAnalyzer()
@@ -406,9 +410,8 @@ for i in range(len(words)):
         str1=str(i+1)+'	'+str(words[i])+'	'+str(p.normal_form)+'	'+str(p.tag.POS)+'	'+str(p.tag)+'	'+str(p.normalized.tag)+'	_'+'	_'+'	_'+'	_'+'\n'
         conll.append(str1)
 
-
-os.chdir(path+'\\tmp')  
-f=codecs.open("in_raw.conll","w","utf-8")
+  
+f=codecs.open(path+"\\tmp\\"+out_name,"w","utf-8")
 
 
 i=0
@@ -419,7 +422,7 @@ f.close()
 ##########################################################################################################################################
 
 conll.clear()
-f=open("in_raw.conll","r",encoding="utf-8")
+f=open(path+"\\tmp\\"+out_name,"r",encoding="utf-8")
 
 
 for line in f:
@@ -491,9 +494,6 @@ for i in range(len(conll)):
 
     for j in range(len(measure)):
         if conll[i][1]==measure[j][0]:
-            print(conll[i][1])
-            print(measure[j][0])
-        
             conll[i][3]='MEAS'
             conll[i][4]=' '+str(measure[j][1])
             break
@@ -534,14 +534,12 @@ for i in range(len(conll)):
 
     flag6=0 
 
-f=codecs.open("in_raw.conll","w","utf-8")
+f=codecs.open(path+"\\tmp\\"+out_name,"w","utf-8")
 i=0
 for i in range(len(conll)):
         #print(str(i+1)+'	'+conll[i][1]+'	'+conll[i][2]+'	'+conll[i][3]+'	'+conll[i][4]+'\n')
         f.write(str(i+1)+'	'+conll[i][1]+'	'+conll[i][2]+'	'+conll[i][3]+'	'+conll[i][4]+'	'+conll[i][5]+'	'+conll[i][6]+'	'+conll[i][7]+'	'+conll[i][8]+'	'+conll[i][9])
 f.close()
-os.chdir(path)
-
 
 
 

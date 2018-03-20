@@ -10,7 +10,7 @@ path = os.path.dirname(os.path.abspath(__file__))
 mas=[]
 options=[]
 
-text = ''.join(open('in.txt',encoding="utf-8").readlines())
+text = ''.join(open('sentences.txt',encoding="utf-8").readlines())
 word=text.split()
 
 def subprocess_cmd(command):
@@ -83,24 +83,25 @@ for i in range(len(mas)):
         print('\nВ данный момент разбирается следующее предложение: '+mas[i])
 
     os.chdir(path)
-    f=codecs.open("in.txt","w","utf-8")
+    f=codecs.open("sentences.txt","w","utf-8")
     f.write(mas[i])
     f.close()
     
     if (show==1):
         print('\n  Этап II. Преобразование входного файла к нужной кодировке:\n ')
 
-    subprocess_cmd('python converter.py in.txt utf8')
+    subprocess_cmd('python converter.py sentences.txt utf8')
 
     if (show==1):
         print('\n  Этап III. Преобразование чисел написанных прописью в числовой формат:\n ')
 
-    subprocess_cmd('python num.py')
+    #subprocess_cmd('python num.py')
 
     if (show==1):
         print('\n  Этап IV. Морфологический анализ:\n ')
         
-    subprocess_cmd('python morph.py ')
+    subprocess_cmd('python morph.py sentences.txt morph.txt')
+    #subprocess_cmd('pause ')
     #os.chdir(path+'\\tmp')
     #subprocess_cmd('python morph_corrector.py ')
     #os.chdir(path)
@@ -113,18 +114,18 @@ for i in range(len(mas)):
     if (show==1):
         print('\n  Этап VI. Синтаксический анализ :\n ')
 
-    subprocess_cmd('python syntax_head.py ')
+    subprocess_cmd('python syntax_head.py morph.txt syntax.txt')
 
     if (show==1 and graph==1):
         print('\n  Этап VII. Визуализация синтаксического графа:\n ')
 
     if (graph==1):
-        subprocess_cmd('python graph.py '+str(i+1))
+        subprocess_cmd('python graph.py tree'+str(i+1))
         
 
 os.chdir(path)   # переходим в родительскую директорию
 i=0
-f=codecs.open("in.txt","w","utf-8")
+f=codecs.open("sentences.txt","w","utf-8")
 for i in range(len(mas)):
     f.write(mas[i]+' ')
 

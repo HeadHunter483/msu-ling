@@ -4,7 +4,7 @@ import sys
 file_1=[]
 file_2=[]
 
-f=open("semantic.txt","r",encoding="utf-8")
+f=open("syntax.txt","r",encoding="utf-8")
 
 count_of_sentence_1=1
 for i,line in enumerate(f):

@@ -1,0 +1,21 @@
+1	найдите	найти	V	V pf - pl imper - -	0	root
+2	диаметр	диаметр	S	S m inan acc pl	1	1-kompl
+3	окружности	окружность	S	S f inan gen sg	2	kvaziagent
+4	,	,	,	, 	3	punc
+5	вписанной	вписать	PARTCP	PARTCP pf praet nom sg plen f pass -	3	opred
+6	в	в	PR	PR	5	obst
+7	прямоугольный	прямоугольный	A	A - acc sg plen m -	8	opred
+8	треугольник	треугольник	S	S m inan acc sg	6	predl
+9	,	,	,	, 	8	punc
+10	если	если	CONJ	CONJ	1	sochin
+11	гипотенуза	гипотенуза	S	S f inan nom sg	13	predic
+12	треугольника	треугольник	S	S m inan gen sg	11	kvaziagent
+13	равна	равный	A	A - - sg brev f -	10	podch-soyuzn
+14	c	c	NONLEX	NONLEX	13	1-kompl
+15	,	,	,	, 	14	punc
+16	а	а	CONJ	CONJ	13	sochin
+17	сумма	сумма	S	S f inan nom sg	19	predic
+18	катетов	катет	S	S m inan gen pl	17	kvaziagent
+19	равна	равный	A	A - - sg brev f -	16	podch-soyuzn
+20	m	m	NONLEX	NONLEX	19	1-kompl
+21	.	.	SENT	SENT	20	punc

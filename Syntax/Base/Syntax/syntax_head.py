@@ -7,6 +7,11 @@ import time
 
 path = os.path.dirname(os.path.abspath(__file__))
 
+if __name__ == "__main__":
+    in_name=sys.argv[1]
+    out_name=sys.argv[2]
+
+
 type1=0
 conj=['а','если','что','когда']
 conll=[]
@@ -37,12 +42,13 @@ def find_case(index): # в слово с указанным индексом и�
     return s
 
 def write_to_file(name,arr,mode): #массив arr записать в файл name
-     f=open(name,mode,encoding="utf-8")
+     f=open(path+"\\tmp\\"+name,mode,encoding="utf-8")
 
      for i in range(len(arr)):
          f.write(str(i+1)+'	'+arr[i][1]+'	'+arr[i][2]+'	'+arr[i][3]+'	'+arr[i][4]+'	'+arr[i][5]+'	'+arr[i][6]+'	'+arr[i][7]+'	'+arr[i][8]+'	'+arr[i][9])
 
      f.close()
+     name=''
 
 def recount(start,finish,arr,type):
     index=0
@@ -84,7 +90,7 @@ def two_simple_with_conj(start,finish,tmp):
         if roo_t>0 and tmp[i][1]=="и":
             conj_id=i
 
-    f=open("tmp.txt","w",encoding="utf-8")
+    f=open(path+"\\tmp\\tmp.txt","w",encoding="utf-8")
 
     for i in range(conj_id):
         f.write(str(i+1)+'	'+tmp[i][1]+'	'+tmp[i][2]+'	'+tmp[i][3]+'	'+tmp[i][4]+'	'+tmp[i][5]+'	'+tmp[i][6]+'	'+tmp[i][7]+'	'+tmp[i][8]+'	'+tmp[i][9])
@@ -94,7 +100,7 @@ def two_simple_with_conj(start,finish,tmp):
     subprocess_cmd('python syntax_hand.py ')
 
 
-    f=open("tmp.txt","w",encoding="utf-8")
+    f=open(path+"\\tmp\\tmp.txt","w",encoding="utf-8")
     
     for i in range(conj_id,len(tmp)):
         f.write(str(i+1)+'	'+tmp[i][1]+'	'+tmp[i][2]+'	'+tmp[i][3]+'	'+tmp[i][4]+'	'+tmp[i][5]+'	'+tmp[i][6]+'	'+tmp[i][7]+'	'+tmp[i][8]+'	'+tmp[i][9])
@@ -138,7 +144,7 @@ def func_1(start,limit,diff,type_): #разбор простых предлож�
          
        
     if type_==0: #считали данные анализа.Сделали пересчет
-        f=open("tmp2.txt","r",encoding="utf-8")
+        f=open(path+"\\tmp\\tmp2.txt","r",encoding="utf-8")
 
         for line in f:
             row=line.split('	')
@@ -183,7 +189,7 @@ def func_2(start,finish,diff,type_): # простое предложений + �
     func_1(start,index,diff,1)
     func_1(index,end,diff,1)
             
-    f=open("tmp2.txt","r",encoding="utf-8")
+    f=open(path+"\\tmp\\tmp2.txt","r",encoding="utf-8")
 
     for line in f:
         row=line.split('	')
@@ -288,7 +294,7 @@ def func_3(start,finish,diff): # простое + оборот + конец пр
     
     conll.clear()
 
-    f=open("tmp2.txt","r",encoding="utf-8")
+    f=open(path+"\\tmp\\tmp2.txt","r",encoding="utf-8")
 
     for line in f:
         row=line.split('	')
@@ -409,309 +415,173 @@ def analyze(start,finish,conj_now):
 
 
     
+try:
+    f=open(path+"\\tmp\\"+in_name,"r",encoding="utf-8")
 
-os.chdir(path+'\\tmp')
+    for line in f:
+        row=line.split('	')
+        conll.append(row)
 
-f=open("in_raw.conll","r",encoding="utf-8")
-
-for line in f:
-    row=line.split('	')
-    conll.append(row)
-
-f.close()
+    f.close()
 
 
+    ### ДЕЛАТЬ ПРОВЕРКУ НА ОДНОРОДНОСТЬ
+    ######################################
 
-### ДЕЛАТЬ ПРОВЕРКУ НА ОДНОРОДНОСТЬ
+    start=0
+    finish=0
+    main_type=0
+    diff=0
+    ex_diff=0
 
-######################################
+    for i in range(start,len(conll)):
+        for j in range(len(conj)):
+            if ((conll[i-1][1]=="," and conll[i][1]==conj[j]) or conll[i][1]=="."): ## предл1 , союз(conj) предл2
+                    conj_now=conj[j]
+                    finish=i
+                    main_type=analyze(start,finish,conj_now)
+                   
+                    if (main_type==1):
+                        if (os.path.isfile(path+"\\tmp\\tmp2.txt")):
+                            os.remove(path+"\\tmp\\tmp2.txt")
+                        
+                        func_2(start,finish,diff,2) #третий аргумент для союза 1
+                        diff=10+finish-start
+                        break
 
-start=0
-finish=0
-main_type=0
-diff=0
-ex_diff=0
-
-for i in range(start,len(conll)):
-    for j in range(len(conj)):
-        if ((conll[i-1][1]=="," and conll[i][1]==conj[j]) or conll[i][1]=="."): ## предл1 , союз(conj) предл2
-                conj_now=conj[j]
-                finish=i
-                main_type=analyze(start,finish,conj_now)
-                
-                if (main_type==1):
-                    os.remove("tmp2.txt")
-                    func_2(start,finish,diff,2) #третий аргумент для союза 1
-                    diff=10+finish-start
-                    break
-
-                if (main_type==0):
-                    os.remove("tmp2.txt")
-                    func_1(start,finish,diff,0)
-                    diff=finish-start
-                    break
+                    if (main_type==0):
+                        if (os.path.isfile(path+"\\tmp\\tmp2.txt")):
+                            os.remove(path+"\\tmp\\tmp2.txt")
+                        
+                        func_1(start,finish,diff,0)
+                        diff=finish-start
+                        break
                     
-                if (main_type==2):
-                    os.remove("tmp2.txt")
-                    func_3(start,finish,diff)
-                    diff=finish-start                  
-                    break
-
-
-   
-    
-    ex_diff=diff            
-    start=finish
-   
-
-f=open("tmp3.txt","r",encoding="utf-8")
-
-conll.clear()
-for line in f:
-    row=line.split('	')
-    conll.append(row)
-
-f.close()
-
-root_count=0
-conj_index=0
-main_root=0
-
-for i in range(len(conll)):
-    if conll[i][7]=="root" and conll[i+1][3]=="NONLEX":
-        conll[i+1][6]=str(i+1)
-        conll[i+1][7]="1-kompl"
-
-    if (conll[i][3]=="CONJ" and conll[i][1]=="а" and conll[i-1][1]==","):
-        j=i
-        while(j>0):
-            if (conll[j][1]=="," and conll[j+1][1]=="если"):
-                conll[i][6]=str(j+2)
-                break
-            j=j-1
-
-for i in range(len(conll)):
-    if conll[i][7]=="root":
-        if (root_count==0):
-            main_root=i+1
-            root_count=root_count+1
-        else:
-            conll[i][6]=str(conj_index+1)
-            conll[i][7]="podch-soyuzn"
-            root_count=root_count+1
-            
-    if conll[i][1]=="что" or conll[i][1]=="если" and conll[i-1][1]==",":
-        conll[i][6]=str(main_root)
-        conj_index=i
-        conll[i-1][7]="punc"
-
-    if conll[i][1]=="а" or conll[i][1]=="то" and conll[i][3]=="CONJ":
-        j=i
-        while(j>0):
-            if (conll[j][7]=="podch-soyuzn" or conll[j][7]=="root"):
-                conll[i][6]=str(j+1)
-                break
-            j=j-1
-
-
-for i in range(len(conll)):
-    if conll[i][1]=="а" or conll[i][1]=="то" and conll[i][3]=="CONJ":
-        j=i
-        while(j<len(conll)):
-            if (conll[j][7]=="podch-soyuzn"):
-                conll[j][6]=str(i+1)
-                break
-            j=j+1
-
-add_sm=0
-for i in range(len(conll)):
-    if "см" in conll[i][1]:
-        add_sm=1
-
-    if add_sm==1 and conll[i][1].isdigit():
-        conll[i][1]=conll[i][1]+' '+"см"
-        conll[i][2]=conll[i][1]
-        
-    
-#for i in range(len(conll)-1):
-        #if int(conll[i][0])>int(conll[i+1][0]):
-            #index=0
-            #index=i
-            #j=index
-            
-            #while(j<len(conll)): #длина ?
-                #if (conll[j][6]!="_"):
-                    #if (j>index):
-                        #conll[j][0]=str(int(conll[j][0])+index)
-                        #conll[j][6]=str(int(conll[j][6])+index+1)
-                #j=j+1
-
-
+                    if (main_type==2):
+                        if (os.path.isfile(path+"\\tmp\\tmp2.txt")):
+                            os.remove(path+"\\tmp\\tmp2.txt")
+                        
+                        func_3(start,finish,diff)
+                        diff=finish-start                  
+                        break
            
-f=open("tmp3.txt","w",encoding="utf-8")
-for i in range(len(conll)):
+        start=finish
+   
+
+    f=open(path+"\\tmp\\tmp3.txt","r",encoding="utf-8")
+
+    conll.clear()
+    for line in f:
+        row=line.split('	')
+        conll.append(row)
+
+    f.close()
+
+    root_count=0
+    conj_index=0
+    main_root=0
+
+    for i in range(len(conll)):
+        if conll[i][7]=="root" and conll[i+1][3]=="NONLEX":
+            conll[i+1][6]=str(i+1)
+            conll[i+1][7]="1-kompl"
+
+        if (conll[i][3]=="CONJ" and conll[i][1]=="а" and conll[i-1][1]==","):
+            j=i
+            while(j>0):
+                if (conll[j][1]=="," and conll[j+1][1]=="если"):
+                    conll[i][6]=str(j+2)
+                    break
+                j=j-1
+
+    for i in range(len(conll)):
+        if conll[i][7]=="root":
+            if (root_count==0):
+                main_root=i+1
+                root_count=root_count+1
+            else:
+                conll[i][6]=str(conj_index+1)
+                conll[i][7]="podch-soyuzn"
+                root_count=root_count+1
+            
+        if conll[i][1]=="что" or conll[i][1]=="если" and conll[i-1][1]==",":
+            conll[i][6]=str(main_root)
+            conj_index=i
+            conll[i-1][7]="punc"
+
+        if conll[i][1]=="а" or conll[i][1]=="то" and conll[i][3]=="CONJ":
+            j=i
+            while(j>0):
+                if (conll[j][7]=="podch-soyuzn" or conll[j][7]=="root"):
+                    conll[i][6]=str(j+1)
+                    break
+                j=j-1
+
+
+    for i in range(len(conll)):
+        if conll[i][1]=="а" or conll[i][1]=="то" and conll[i][3]=="CONJ":
+            j=i
+            while(j<len(conll)):
+                if (conll[j][7]=="podch-soyuzn"):
+                    conll[j][6]=str(i+1)
+                    break
+                j=j+1
+
+    add_sm=0
+    for i in range(len(conll)):
+        if "см" in conll[i][1]:
+            add_sm=1
+
+        if add_sm==1 and conll[i][1].isdigit():
+            conll[i][1]=conll[i][1]+' '+"см"
+            conll[i][2]=conll[i][1]
+        
+except:
+    f=open(path+"\\tmp\\tmp3.txt","w",encoding="utf-8")
+    f.write("error")
+    f.close()
+    
+    f=codecs.open(path+out_name,"a","utf-8")
+    f2=codecs.open(path+"\\graph.txt","w","utf-8")
+
+    f.write("error")
+    f.close()
+    
+    f2.write("error")
+    f2.close()
+
+else:         
+    f=open(path+"\\tmp\\tmp3.txt","w",encoding="utf-8")
+    for i in range(len(conll)):
         f.write(str(i+1)+'	'+conll[i][1]+'	'+conll[i][2]+'	'+conll[i][3]+'	'+conll[i][4]+'	'+conll[i][5]+'	'+conll[i][6]+'	'+conll[i][7]+'	'+conll[i][8]+'	'+conll[i][9])
 
-f.close()        
+    f.close()        
     
+    conll.clear()
 
+    f=open(path+"\\tmp\\tmp3.txt","r",encoding="utf-8")
 
+    for line in f:
+        row=line.split('	')
+        conll.append(row)
 
+    f.close()
 
+    f=codecs.open(path+"\\"+out_name,"a","utf-8")
+    f2=codecs.open(path+"\\tmp\\graph.txt","w","utf-8")
 
+    for i in range(len(conll)):
+        f.write(str(i+1)+'	'+conll[i][1]+'	'+conll[i][2]+'	'+conll[i][3]+'	'+conll[i][4]+'	'+conll[i][6]+'	'+conll[i][7]+'\n')
+        f2.write(str(i+1)+'	'+conll[i][1]+'	'+conll[i][2]+'	'+conll[i][3]+'	'+conll[i][4]+'	'+conll[i][6]+'	'+conll[i][7]+'\n')
 
 
-
-
-
-
-
-
-
-
-#####################################
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#for i in range(len(conll)):            
-    #if (conll[i][1]=="," and (conll[i+1][4]=="который" or conll[i+1][3]=="PARTCP")):
-        #j=i+1
-        #while(j<len(conll)):
-            #if "," in conll[j][1]:
-                #type=2
-                #index=i
-                #word=conll[i+1][1]
-                #break
-
-            #j=j+1
-
-#type2=0                
-#for i in range(len(conll)):
-    #for j in range(len(conj)):
-        #if (type==0 and conll[i-1][1]=="," and (conll[i][1]==conj[j] or conll[i][3]=="PARTCP")):
-            #type=1
-            #if (conll[i][1]==conj[j]):
-                #conj_now=conj[j]
-                #type2=1
-            #if (conll[i][3]=="PARTCP"):
-                #conj_now=conll[i][1]
-                #type2=2
-            
-#for i in range(len(conll)):
-    #print(conll[i])
-
-
-        
-#if (type==1):
-    #os.remove("tmp.txt")
-    #os.remove("tmp2.txt")
-    #func_2(conj_now,type2)
-
-#if (type==0):
-    #os.remove("tmp.txt")
-    #os.remove("tmp2.txt")
-    #func_1(0,len(conll),0)
-
-
-#if (type==2):
-    #os.remove("tmp.txt")
-    #os.remove("tmp2.txt")
-    #func_3(index,word)
-
-root=0
-flag=0
-
-
-
-#for i in range(len(conll)):
-    #if "," in conll[i][1] and conll[i+1][1]!="а" and conll[i+1][1]!="что":
-        #conll[i][1]=conll[i][1].replace(",",".")
-        #conll[i+1][1]=conll[i+1][1].capitalize()
-        #root=root-1
-
-
-        
-        
-
-
-
-
-
-
-
-
-
-
-
-#f=codecs.open(path+"\\out.txt","a","utf-8")
-#i=0
-
-#for i in range(len(conll)):
-    #if conll[i][3]=="NONLEX" and len(conll[i][1])>1:
-        #conll[i][1]=conll[i][1].upper()
-        #conll[i][2]=conll[i][2].upper()
-        
-        
-        
-#for i in range(len(conll)):
-        #if conll[i][6]=="_":
-            #conll[i][6]="1"
-            #conll[i][7]="wrong_link"
-        #f.write(str(i+1)+'	'+conll[i][1]+'	'+conll[i][2]+'	'+conll[i][3]+'	'+conll[i][4]+'	'+conll[i][5]+'	'+conll[i][6]+'	'+conll[i][7]+'	'+conll[i][8]+'	'+conll[i][9])
-
-#f.write('\n')
-#f.close()
-
-conll.clear()
-
-f=open("tmp3.txt","r",encoding="utf-8")
-
-for line in f:
-    row=line.split('	')
-    conll.append(row)
-
-f.close()
-
-f=codecs.open(path+"\\semantic.txt","a","utf-8")
-f1=codecs.open(path+"\\log.txt","a","utf-8")
-f2=codecs.open(path+"\\graph.txt","w","utf-8")
-
-#i=0
-for i in range(len(conll)):
-    #if (conll[i][6]=="_" and conll[i][7]=="_"):
-        #f1.write('\nDate: '+time.strftime("%d/%m/%Y/%H:%M:%S")+"\n")
-        #f1.write("1 "+str(conll[i-1])+"\n"+"2 "+str(conll[i])+"\n"+"3 "+str(conll[i+1]))
-    #print(str(i+1)+'	'+conll[i][1]+'	'+conll[i][2]+'	'+conll[i][3]+'	'+conll[i][4]+'	'+conll[i][6]+'	'+conll[i][7]+'\n')
-    f.write(str(i+1)+'	'+conll[i][1]+'	'+conll[i][2]+'	'+conll[i][3]+'	'+conll[i][4]+'	'+conll[i][6]+'	'+conll[i][7]+'\n')
-    f2.write(str(i+1)+'	'+conll[i][1]+'	'+conll[i][2]+'	'+conll[i][3]+'	'+conll[i][4]+'	'+conll[i][6]+'	'+conll[i][7]+'\n')
-
-
-f.write('\n')
-#f1.close()
-f.close()
-f2.close()
+    f.write('\n')
+    f.close()
+    f2.close()
     
-os.remove("tmp3.txt")
-print('finished')
+    os.remove(path+"\\tmp\\tmp3.txt")
+    print('finished')
+
 
 
     

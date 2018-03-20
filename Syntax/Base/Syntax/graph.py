@@ -7,14 +7,19 @@ path = os.path.dirname(os.path.abspath(__file__))
 os.environ["PATH"] += os.pathsep + 'E:/Analyz/Syntax/visual/bin'
 
 if __name__ == "__main__":
-    iterationnum=sys.argv[1]
+    name=sys.argv[1]
+    iterationnum=sys.argv[2]
 
-f=codecs.open("graph.txt","r","utf-8")
+f=codecs.open(path+"\\tmp\\graph.txt","r","utf-8")
 rows=[]
 edges=[]
 nodes=[]
 
 for line in f:
+    if line=="error":
+        print('error')
+        sys.exit()
+		
     print(line)
     if line=='\n':
         continue
@@ -63,7 +68,7 @@ for edge in range(edges):
         edge_2=ptp.Edge(id_2,id_1)
         edge_2.set_label(' '+str(rows[edge][6]))
         graph.add_edge(edge_2)
-      
-graph.write_pdf(path+"\\Graphs\\file"+str(iterationnum)+".pdf")
-graph.write_png(path+"\\Graphs\\file"+str(iterationnum)+".png")
+    
+#graph.write_pdf(path+"\\Graphs\\"+name+str(iterationnum)+".pdf")
+graph.write_png(path+"\\Graphs\\"+name+str(iterationnum)+".png")
 #os.chdir(path)
