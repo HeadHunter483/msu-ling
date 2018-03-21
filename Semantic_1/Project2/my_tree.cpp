@@ -156,7 +156,7 @@ void TREE::measure()
 	vector <string> measure;
 	vector<int> number_of_children_with_the_necessary_morfology;
 	node mynode;
-	file.open("measure.txt");
+	file.open("temp/measure.txt");
 	if (!file)
 		cout << "cannot open file: measure.txt";
 	
@@ -214,11 +214,11 @@ void TREE::start()
 	vector<vector<string>>exception;
 
 	bool is__an_exception = false;
-	file.open("check_words.txt");
+	file.open("temp/check_words.txt");
 	if (!file)
 		cout << "cannot open file: check_words.txt";
 
-	file2.open("operations.txt");
+	file2.open("temp/operations.txt");
 	if (!file2)
 		cout << "cannot open file: standart_predicate.txt";
 
@@ -252,7 +252,7 @@ void TREE::start()
 		}
 
 	}
-	file1.open("standart_predicate.txt");
+	file1.open("temp/standart_predicate.txt");
 	if (!file1)
 		cout << "cannot open file: standart_predicate.txt";
 
@@ -635,7 +635,7 @@ void TREE::check()
 		}
 	}
 }
-void TREE::print_predicate(size_t number_of_sentence, size_t number_of_word)
+void TREE::print_predicate(size_t number_of_sentence, size_t number_of_word,ofstream& outfile)
 {
 	parent_pred parent;
 	unsigned int i = 0;
@@ -644,11 +644,11 @@ void TREE::print_predicate(size_t number_of_sentence, size_t number_of_word)
 		if (My_tree[number_of_sentence][number_of_word].predicate[i].number_of_pred >=0)
 		{
 			for (int k = 0; k < My_tree[number_of_sentence][number_of_word].predicate[i].main_word.size(); k++)
-				cout << My_tree[number_of_sentence][number_of_word].predicate[i].main_word[k] + "_";
+				outfile<< My_tree[number_of_sentence][number_of_word].predicate[i].main_word[k] + "_";
 			for (int k = 0; k < My_tree[number_of_sentence][number_of_word].predicate[i].dep_words.size(); k++)
-				cout << My_tree[number_of_sentence][number_of_word].predicate[i].dep_words[k] + "_";
+				outfile << My_tree[number_of_sentence][number_of_word].predicate[i].dep_words[k] + "_";
 
-			cout << "(";
+			outfile << "(";
 			for (int k = 0; k < My_tree[number_of_sentence][number_of_word].predicate[i].pred_atribut.size(); k++)
 			{
 
@@ -656,21 +656,21 @@ void TREE::print_predicate(size_t number_of_sentence, size_t number_of_word)
 				int count2 = My_tree[number_of_sentence][number_of_word].predicate[i].pred_atribut[k].number_word;
 				int count3 = My_tree[number_of_sentence][number_of_word].predicate[i].pred_atribut[k].number_pred;
 				if (count3 == -1)
-					cout << My_tree[count1][count2].predicate[0].atribut[0];
+					outfile << My_tree[count1][count2].predicate[0].atribut[0];
 				else
-					cout << My_tree[count1][count2].predicate[count3].atribut[0];
+					outfile << My_tree[count1][count2].predicate[count3].atribut[0];
 				if (k != My_tree[number_of_sentence][number_of_word].predicate[i].pred_atribut.size() - 1)
-					cout << ",";
+					outfile << ",";
 			}
 			if (!My_tree[number_of_sentence][number_of_word].predicate[i].atribut.empty())
 			{
 				if (!My_tree[number_of_sentence][number_of_word].predicate[i].pred_atribut.empty())
-					cout << ",";
+					outfile << ",";
 				for (int k = 0; k < My_tree[number_of_sentence][number_of_word].predicate[i].atribut.size(); k++)
 				{
-					cout << My_tree[number_of_sentence][number_of_word].predicate[i].atribut[k];
+					outfile << My_tree[number_of_sentence][number_of_word].predicate[i].atribut[k];
 					if (k != My_tree[number_of_sentence][number_of_word].predicate[i].atribut.size() - 1)
-						cout << ",";
+						outfile << ",";
 				}
 			}
 			/*if (My_tree[number_of_sentence][number_of_word].predicate[i].number_of_pred == 0)
@@ -679,8 +679,8 @@ void TREE::print_predicate(size_t number_of_sentence, size_t number_of_word)
 			for (unsigned int j = 0; j < My_tree[number_of_sentence][number_of_word].predicate[i].atribut.size(); j++)
 			{
 			if (j != 0)
-			cout << ",";
-			cout << My_tree[number_of_sentence][number_of_word].predicate[i].atribut[j];
+			outfile << ",";
+			outfile << My_tree[number_of_sentence][number_of_word].predicate[i].atribut[j];
 			}
 			}
 			else
@@ -690,19 +690,19 @@ void TREE::print_predicate(size_t number_of_sentence, size_t number_of_word)
 			for (unsigned int j = 0; j < My_tree[number_of_sentence][number_of_word].predicate[i].atribut.size(); j++)
 			{
 			if (j != 0)
-			cout << ",";
-			cout << My_tree[number_of_sentence][number_of_word].predicate[i].atribut[j];
+			outfile << ",";
+			outfile << My_tree[number_of_sentence][number_of_word].predicate[i].atribut[j];
 			}
-			cout << ",";
+			outfile << ",";
 			for (int k = 0; k < My_tree[number_of_sentence][number_of_word].predicate[i].pred_atribut.size(); k++)
 			{
 			int count1 = My_tree[number_of_sentence][number_of_word].predicate[i].pred_atribut[0].number_sentence;
 			int count2 = My_tree[number_of_sentence][number_of_word].predicate[i].pred_atribut[0].number_word;
 			int count3 = My_tree[number_of_sentence][number_of_word].predicate[i].pred_atribut[0].number_pred;
 			if (count3==-1)
-			cout << My_tree[count1][count2].predicate[0].atribut[0];
+			outfile << My_tree[count1][count2].predicate[0].atribut[0];
 			else
-			cout << My_tree[count1][count2].predicate[count3].atribut[0];
+			outfile << My_tree[count1][count2].predicate[count3].atribut[0];
 			}
 
 			}
@@ -716,11 +716,11 @@ void TREE::print_predicate(size_t number_of_sentence, size_t number_of_word)
 			int count2 = My_tree[number_of_sentence][number_of_word].predicate[i].pred_atribut[k].number_word;
 			int count3 = My_tree[number_of_sentence][number_of_word].predicate[i].pred_atribut[k].number_pred;
 			if (count3 == -1)
-			cout << My_tree[count1][count2].predicate[0].atribut[0];
+			outfile << My_tree[count1][count2].predicate[0].atribut[0];
 			else
-			cout << My_tree[count1][count2].predicate[count3].atribut[0];
+			outfile << My_tree[count1][count2].predicate[count3].atribut[0];
 			if (k != My_tree[number_of_sentence][number_of_word].predicate[i].pred_atribut.size()-1)
-			cout << ",";
+			outfile << ",";
 			}
 			}
 			else
@@ -733,39 +733,39 @@ void TREE::print_predicate(size_t number_of_sentence, size_t number_of_word)
 			int count2 = My_tree[number_of_sentence][number_of_word].predicate[i].pred_atribut[k].number_word;
 			int count3 = My_tree[number_of_sentence][number_of_word].predicate[i].pred_atribut[k].number_pred;
 			if (count3 == -1)
-			cout << My_tree[count1][count2].predicate[0].atribut[0];
+			outfile << My_tree[count1][count2].predicate[0].atribut[0];
 			else
-			cout << My_tree[count1][count2].predicate[count3].atribut[0];
+			outfile << My_tree[count1][count2].predicate[count3].atribut[0];
 			if (k != My_tree[number_of_sentence][number_of_word].predicate[i].pred_atribut.size() - 1)
-			cout << ",";
+			outfile << ",";
 			}
 			if (!My_tree[number_of_sentence][number_of_word].predicate[i].atribut.empty())
 			{
 			if (!My_tree[number_of_sentence][number_of_word].predicate[i].pred_atribut.empty())
-			cout << ",";
+			outfile << ",";
 			for (int k = 0; k < My_tree[number_of_sentence][number_of_word].predicate[i].atribut.size(); k++)
 			{
-			cout << My_tree[number_of_sentence][number_of_word].predicate[i].atribut[k];
+			outfile << My_tree[number_of_sentence][number_of_word].predicate[i].atribut[k];
 			if (k != My_tree[number_of_sentence][number_of_word].predicate[i].atribut.size()-1)
-			cout << ",";
+			outfile << ",";
 			}
 			}
 			}
 			}
 			}
 			}*/
-			cout << ");";
+			outfile << ");";
 		}
 		else
 		{
 			if (My_tree[number_of_sentence][number_of_word].predicate[i].number_of_pred == -1)
 			{
 				for (int k = 0; k < My_tree[number_of_sentence][number_of_word].predicate[i].main_word.size(); k++)
-					cout << My_tree[number_of_sentence][number_of_word].predicate[i].main_word[k] + "_";
+					outfile << My_tree[number_of_sentence][number_of_word].predicate[i].main_word[k] + "_";
 				for (int k = 0; k < My_tree[number_of_sentence][number_of_word].predicate[i].dep_words.size(); k++)
-					cout << My_tree[number_of_sentence][number_of_word].predicate[i].dep_words[k] + "_";
+					outfile << My_tree[number_of_sentence][number_of_word].predicate[i].dep_words[k] + "_";
 
-				cout << "(";
+				outfile << "(";
 				for (int k = 0; k < My_tree[number_of_sentence][number_of_word].predicate[i].pred_atribut.size(); k++)
 				{
 
@@ -775,28 +775,28 @@ void TREE::print_predicate(size_t number_of_sentence, size_t number_of_word)
 					if (count3 == -1)
 					{
 
-						cout << My_tree[count1][count2].predicate[0].atribut[1];
+						outfile << My_tree[count1][count2].predicate[0].atribut[1];
 					}
 					else
 					{
-						cout << My_tree[count1][count2].predicate[count3].atribut[1];
+						outfile << My_tree[count1][count2].predicate[count3].atribut[1];
 					}
 					if (k != My_tree[number_of_sentence][number_of_word].predicate[i].pred_atribut.size() - 1)
-						cout << ",";
+						outfile << ",";
 				}
 				if (!My_tree[number_of_sentence][number_of_word].predicate[i].atribut.empty())
 				{
 					if (!My_tree[number_of_sentence][number_of_word].predicate[i].pred_atribut.empty())
-						cout << ",";
+						outfile << ",";
 					for (int k = 0; k < My_tree[number_of_sentence][number_of_word].predicate[i].atribut.size(); k++)
 					{
-						cout << My_tree[number_of_sentence][number_of_word].predicate[i].atribut[k];
+						outfile << My_tree[number_of_sentence][number_of_word].predicate[i].atribut[k];
 						if (k != My_tree[number_of_sentence][number_of_word].predicate[i].atribut.size() - 1)
-							cout << ",";
+							outfile << ",";
 					}
 				}
 			
-				cout << ");";
+				outfile << ");";
 			}
 			else
 			{
@@ -816,11 +816,11 @@ void TREE::print_predicate(size_t number_of_sentence, size_t number_of_word)
 								int count5 = My_tree[count1][count2].predicate[0].pred_atribut[count].number_word;
 								int count6 = My_tree[count1][count2].predicate[0].pred_atribut[count].number_pred;
 								if (count6 == -1)
-									cout << My_tree[count4][count5].predicate[0].atribut[1];
+									outfile << My_tree[count4][count5].predicate[0].atribut[1];
 								else
-									cout << My_tree[count4][count5].predicate[count6].atribut[1];
+									outfile << My_tree[count4][count5].predicate[count6].atribut[1];
 								if (count + 1 != My_tree[count1][count2].predicate[count2].pred_atribut.size())
-									cout << My_tree[count1][count2].Rule[0];
+									outfile << My_tree[count1][count2].Rule[0];
 
 							}
 						}
@@ -834,46 +834,46 @@ void TREE::print_predicate(size_t number_of_sentence, size_t number_of_word)
 									int count5 = My_tree[count1][count2].predicate[count3].pred_atribut[count].number_word;
 									int count6 = My_tree[count1][count2].predicate[count3].pred_atribut[count].number_pred;
 									if (count6 == -1)
-										cout << My_tree[count4][count5].predicate[0].atribut[1];
+										outfile << My_tree[count4][count5].predicate[0].atribut[1];
 									else
-										cout << My_tree[count4][count5].predicate[count6].atribut[1];
+										outfile << My_tree[count4][count5].predicate[count6].atribut[1];
 									if (count + 1 != My_tree[count1][count2].predicate[count3].pred_atribut.size())
-										cout << My_tree[count1][count2].Rule[0];
+										outfile << My_tree[count1][count2].Rule[0];
 
 								}
 							}
 							else
 							{
-								cout << My_tree[count1][count2].predicate[count3].atribut[0];
+								outfile << My_tree[count1][count2].predicate[count3].atribut[0];
 							}
 						}
 						if (k != My_tree[number_of_sentence][number_of_word].predicate[i].pred_atribut.size() - 1)
-							cout << My_tree[number_of_sentence][number_of_word].Rule[0];
+							outfile << My_tree[number_of_sentence][number_of_word].Rule[0];
 					}
 					if (!My_tree[number_of_sentence][number_of_word].predicate[i].atribut.empty())
 					{
 						if (!My_tree[number_of_sentence][number_of_word].predicate[i].pred_atribut.empty())
-							cout << My_tree[number_of_sentence][number_of_word].Rule[0];
+							outfile << My_tree[number_of_sentence][number_of_word].Rule[0];
 						for (int k = 0; k < My_tree[number_of_sentence][number_of_word].predicate[i].atribut.size(); k++)
 						{
-							cout << My_tree[number_of_sentence][number_of_word].predicate[i].atribut[k];
+							outfile << My_tree[number_of_sentence][number_of_word].predicate[i].atribut[k];
 							if (k != My_tree[number_of_sentence][number_of_word].predicate[i].atribut.size() - 1)
-								cout << My_tree[number_of_sentence][number_of_word].Rule[0];
+								outfile << My_tree[number_of_sentence][number_of_word].Rule[0];
 						}
 					}
 
-					cout << ";";
+					outfile << ";";
 				}
 				else
 				{
 					if (My_tree[number_of_sentence][number_of_word].predicate[i].number_of_pred == -3)
 					{
 						for (int k = 0; k < My_tree[number_of_sentence][number_of_word].predicate[i].main_word.size(); k++)
-							cout << My_tree[number_of_sentence][number_of_word].predicate[i].main_word[k] + "_";
+							outfile << My_tree[number_of_sentence][number_of_word].predicate[i].main_word[k] + "_";
 						for (int k = 0; k < My_tree[number_of_sentence][number_of_word].predicate[i].dep_words.size(); k++)
-							cout << My_tree[number_of_sentence][number_of_word].predicate[i].dep_words[k] + "_";
+							outfile << My_tree[number_of_sentence][number_of_word].predicate[i].dep_words[k] + "_";
 
-						cout << "(";
+						outfile << "(";
 						for (int k = 0; k < My_tree[number_of_sentence][number_of_word].predicate[i].pred_atribut.size(); k++)
 						{
 
@@ -888,11 +888,11 @@ void TREE::print_predicate(size_t number_of_sentence, size_t number_of_word)
 									int count5 = My_tree[count1][count2].predicate[0].pred_atribut[count].number_word;
 									int count6 = My_tree[count1][count2].predicate[0].pred_atribut[count].number_pred;
 									if (count6 == -1)
-										cout << My_tree[count4][count5].predicate[0].atribut[1];
+										outfile << My_tree[count4][count5].predicate[0].atribut[1];
 									else
-										cout << My_tree[count4][count5].predicate[count6].atribut[1];
+										outfile << My_tree[count4][count5].predicate[count6].atribut[1];
 									if (count + 1 != My_tree[count1][count2].predicate[count2].pred_atribut.size())
-										cout << My_tree[count1][count2].Rule[0];
+										outfile << My_tree[count1][count2].Rule[0];
 
 								}
 							}
@@ -904,42 +904,43 @@ void TREE::print_predicate(size_t number_of_sentence, size_t number_of_word)
 									int count5 = My_tree[count1][count2].predicate[count3].pred_atribut[count].number_word;
 									int count6 = My_tree[count1][count2].predicate[count3].pred_atribut[count].number_pred;
 									if (count6 == -1)
-										cout << My_tree[count4][count5].predicate[0].atribut[1];
+										outfile << My_tree[count4][count5].predicate[0].atribut[1];
 									else
-										cout << My_tree[count4][count5].predicate[count6].atribut[1];
+										outfile << My_tree[count4][count5].predicate[count6].atribut[1];
 									if (count + 1 != My_tree[count1][count2].predicate[count3].pred_atribut.size())
-										cout << My_tree[count1][count2].Rule[0];
+										outfile << My_tree[count1][count2].Rule[0];
 
 								}
 							}
 							if (k != My_tree[number_of_sentence][number_of_word].predicate[i].pred_atribut.size() - 1)
-								cout << ",";
+								outfile << ",";
 						}
 						if (!My_tree[number_of_sentence][number_of_word].predicate[i].atribut.empty())
 						{
 							if (!My_tree[number_of_sentence][number_of_word].predicate[i].pred_atribut.empty())
-								cout << ",";
+								outfile << ",";
 							for (int k = 0; k < My_tree[number_of_sentence][number_of_word].predicate[i].atribut.size(); k++)
 							{
-								cout << My_tree[number_of_sentence][number_of_word].predicate[i].atribut[k];
+								outfile << My_tree[number_of_sentence][number_of_word].predicate[i].atribut[k];
 								if (k != My_tree[number_of_sentence][number_of_word].predicate[i].atribut.size() - 1)
-									cout << ",";
+									outfile << ",";
 							}
 						}
 
-						cout << ");";
+						outfile << ");";
 					}
 				}
 			}
 		}
 	}
-	cout << endl;
+	outfile << endl;
 
 }
 void TREE::number_converter()
 {
 	ifstream file;
-	file.open("Numerals.txt");
+	bool flag = true;
+	file.open("temp/Numerals.txt");
 	vector<string> number_in_words;
 	vector<double> number;
 	int result = 0;
@@ -962,16 +963,29 @@ void TREE::number_converter()
 			if (!My_tree[n][i].morfology.empty() && My_tree[n][i].morfology[0] == "NUM")
 			{
 
-				if (My_tree[n][i].morfology.size() == 1)
+				if ('0' <= My_tree[n][i].name[0] && My_tree[n][i].name[0]<='9')
 				{
+					flag = true;
 					buf = My_tree[n][i].name.size();
 					for (int j = 0; j < buf; j++)
 					{
-						result = result + (My_tree[n][i].name[j] - '0')*pow(10.0, buf) / pow(10.0, j);
+						if ('0' <= My_tree[n][i].name[0] && My_tree[n][i].name[0] <= '9')
+						{
+							result = result + (My_tree[n][i].name[j] - '0')*pow(10.0, buf - j -1);
+						}
+						else
+						{
+							flag = false;
+							result = 0;
+							break;
+						}
 					}
-					My_tree[n][i].is_number = true;
-					My_tree[n][i].name_number = result;
-					result = 0;
+					if (flag)
+					{
+						My_tree[n][i].is_number = true;
+						My_tree[n][i].name_number = result;
+						result = 0;
+					}
 					
 				}
 
@@ -1133,7 +1147,7 @@ void TREE::rule()
 	string buf;
 	int buf_int;
 	bool flag = false;
-	file.open("rules.txt");
+	file.open("temp/rules.txt");
 	if (!file)
 		cout << "cannot open file: standart_predicate.txt";
 
@@ -1317,7 +1331,7 @@ void TREE::standart_predikat_2()
 									{
 										if (!My_tree[n][count].parent[count_parent]->children[count_child]->morfology.empty())
 										{
-											if ( (My_tree[n][count].parent[count_parent]->children[count_child]->morfology[0] == "NUM" || My_tree[n][count].parent[count_parent]->children[count_child]->morfology[0] == "NONLEX" || My_tree[n][count].parent[count_parent]->children[count_child]->morfology[0] == "ATR" || My_tree[n][count].parent[count_parent]->children[count_child]->morfology[0] == "ABR"))
+											if (My_tree[n][count].parent[count_parent]->children[count_child]->number != count && (My_tree[n][count].parent[count_parent]->children[count_child]->morfology[0] == "S" || My_tree[n][count].parent[count_parent]->children[count_child]->morfology[0] == "NUM" || My_tree[n][count].parent[count_parent]->children[count_child]->morfology[0] == "NONLEX" || My_tree[n][count].parent[count_parent]->children[count_child]->morfology[0] == "ATR" || My_tree[n][count].parent[count_parent]->children[count_child]->morfology[0] == "ABR"))
 											{
 												arg2.push_back(My_tree[n][count].parent[count_parent]->children[count_child]->number);
 												num_kill = My_tree[n][count].parent[count_parent]->number;
@@ -1384,7 +1398,7 @@ void TREE::standart_predikat_2()
 						{
 							for (int count_child = 0; count_child < My_tree[n][count].children.size(); count_child++)
 							{
-								if (My_tree[n][count].children[count_child]->morfology[0] == "NUM" || My_tree[n][count].children[count_child]->morfology[0] == "NONLEX")
+								if (My_tree[n][count].children[count_child]->morfology[0] == "NUM")
 								{
 									arg2.push_back(My_tree[n][count].children[count_child]->number);
 								}
@@ -1998,7 +2012,7 @@ void TREE::standart_predikat_3()
 					for (int child = 0; child < My_tree[n][count].children.size(); child++)
 					{
 						/////////////костыль исправь//////////////////////////////////////////////////////////////////////////
-						if (My_tree[n][count].children[child]->morfology[0] == "PR" && (My_tree[n][count].children[child]->relation[0] == "obst" || My_tree[n][count].children[child]->relation[0] == "2-kompl" || My_tree[n][count].children[child]->relation[0] == "1-kompl" || My_tree[n][count].children[child]->relation[0] =="kolich-kopred" ))
+						if (My_tree[n][count].children[child]->morfology[0] == "PR")
 						{
 
 							arg2.push_back(My_tree[n][count].children[child]->children[0]->number);
@@ -3342,6 +3356,7 @@ void TREE::rule_6()
 	{
 		for (int j = 0; j < My_tree[i].size(); j++)
 		{
+			flag = 0;
 			if (main_word == My_tree[i][j].Initial_form)
 			{
 				flag = 1;
@@ -3371,18 +3386,25 @@ void TREE::rule_6()
 					}
 
 				}
+				if (flag == 1 && My_phrase.back().atribut_phrase.empty() && My_phrase.back().atribut_predicate.empty())
+				{
+					My_phrase.pop_back();
+				}
 				continue;
+				
 			}
 			
 		}
 	}
 	
+	
 }
-void TREE::list()
+void TREE::list(ofstream& outfile)
 {
+	
 	int start = 0;
 	vector<string>exeption;
-	cout << endl;
+	outfile << endl;
 	for (int i = 0; i < My_tree.size(); i++)
 	{
 		for (int j = 0; j < My_tree[i].size(); j++)
@@ -3414,10 +3436,10 @@ void TREE::list()
 		for (int j = 0; j < My_tree[i].size(); j++)
 		{
 			if (My_tree[i][j].is_pred && !My_tree[i][j].predicate[0].is_used)
-				print_predicate(i,j);
+				print_predicate(i,j,outfile);
 		}
 	}
-	cout << endl;
+	outfile << endl;
 	int j = 0;
 	for (int i = 0; i < My_phrase.size(); i++)
 	{
@@ -3425,15 +3447,15 @@ void TREE::list()
 		{
 			if (My_phrase[i].Rule.empty())
 			{
-				cout << My_phrase[i].main << "{" << endl;
+				outfile << My_phrase[i].main << "{" << endl;
 				for (j = 0; j < My_phrase[i].atribut_phrase.size(); j++)
 				{
 					if (My_phrase[i].atribut_phrase[j].Rule.empty())
 					{
-						cout << My_phrase[i].atribut_phrase[j].main << "{" << endl;
+						outfile << My_phrase[i].atribut_phrase[j].main << "{" << endl;
 						for (int k = 0; k < My_phrase[i].atribut_phrase[j].atribut_predicate.size(); k++)
 						{
-							print_predicate(My_phrase[i].atribut_phrase[j].atribut_predicate[k].number_sentence, My_phrase[i].atribut_phrase[j].atribut_predicate[k].number_word);
+							print_predicate(My_phrase[i].atribut_phrase[j].atribut_predicate[k].number_sentence, My_phrase[i].atribut_phrase[j].atribut_predicate[k].number_word,outfile);
 						}
 					}
 					else
@@ -3441,71 +3463,71 @@ void TREE::list()
 						for (int count = 0; count < My_phrase[i].atribut_phrase[j].atribut_phrase.size(); count++)
 						{
 							int count1 = 0;
-							cout << My_phrase[i].atribut_phrase[j].atribut_phrase[count].main << "{" << endl;
+							outfile << My_phrase[i].atribut_phrase[j].atribut_phrase[count].main << "{" << endl;
 							for (count1 = 0; count1 < My_phrase[i].atribut_phrase[j].atribut_phrase[count].atribut_predicate.size(); count1++)
 							{
-								print_predicate(My_phrase[i].atribut_phrase[j].atribut_phrase[count].atribut_predicate[count1].number_sentence, My_phrase[i].atribut_phrase[j].atribut_phrase[count].atribut_predicate[count1].number_word);
+								print_predicate(My_phrase[i].atribut_phrase[j].atribut_phrase[count].atribut_predicate[count1].number_sentence, My_phrase[i].atribut_phrase[j].atribut_phrase[count].atribut_predicate[count1].number_word,outfile);
 							}
 							if (count1 != 0)
-								cout << "}" << My_phrase[i].atribut_phrase[j].Rule[0];
-							cout << "{" << endl;
+								outfile << "}" << My_phrase[i].atribut_phrase[j].Rule[0];
+							outfile << "{" << endl;
 							for (int k = 0; k < My_phrase[i].atribut_phrase[j].atribut_predicate.size(); k++)
 							{
-								print_predicate(My_phrase[i].atribut_phrase[j].atribut_predicate[k].number_sentence, My_phrase[i].atribut_phrase[j].atribut_predicate[k].number_word);
+								print_predicate(My_phrase[i].atribut_phrase[j].atribut_predicate[k].number_sentence, My_phrase[i].atribut_phrase[j].atribut_predicate[k].number_word,outfile);
 							}
-							cout << "}" << endl;
+							outfile << "}" << endl;
 						}
 					}
 				}
 				if (j != 0)
 				{
-					cout << "}" << endl;
+					outfile << "}" << endl;
 				}
 				for (int k = 0; k < My_phrase[i].atribut_predicate.size(); k++)
 				{
-					print_predicate(My_phrase[i].atribut_predicate[k].number_sentence, My_phrase[i].atribut_predicate[k].number_word);
+					print_predicate(My_phrase[i].atribut_predicate[k].number_sentence, My_phrase[i].atribut_predicate[k].number_word,outfile);
 				}
-				cout << "}" << endl;
+				outfile << "}" << endl;
 			}
 			else
 			{
 				for (j = 0; j < My_phrase[i].atribut_phrase.size(); j++)
 				{
-					cout << My_phrase[i].atribut_phrase[j].main << "{" << endl;
+					outfile << My_phrase[i].atribut_phrase[j].main << "{" << endl;
 					for (int k = 0; k < My_phrase[i].atribut_phrase[j].atribut_predicate.size(); k++)
 					{
-						print_predicate(My_phrase[i].atribut_phrase[j].atribut_predicate[k].number_sentence, My_phrase[i].atribut_phrase[j].atribut_predicate[k].number_word);
+						print_predicate(My_phrase[i].atribut_phrase[j].atribut_predicate[k].number_sentence, My_phrase[i].atribut_phrase[j].atribut_predicate[k].number_word,outfile);
 					}
 				}
 				if (j != 0)
 				{
-					cout << "}" << My_phrase[i].Rule[0];
+					outfile << "}" << My_phrase[i].Rule[0];
 				}
-				cout << "{";
+				outfile << "{";
 				for (int k = 0; k < My_phrase[i].atribut_predicate.size(); k++)
 				{
-					print_predicate(My_phrase[i].atribut_predicate[k].number_sentence, My_phrase[i].atribut_predicate[k].number_word);
+					print_predicate(My_phrase[i].atribut_predicate[k].number_sentence, My_phrase[i].atribut_predicate[k].number_word,outfile);
 				}
-				cout << "}" << endl;
+				outfile << "}" << endl;
 			}
 		}
 	}
 }
-void TREE::print_sentences()
+void TREE::print_sentences(ofstream& outfile)
 {
-	cout << endl;
+	outfile << endl;
 	for (int i = 0; i < My_tree.size(); i++)
 	{
 		for (int j = 0; j < My_tree[i].size(); j++)
 		{
 			
-				cout << My_tree[i][j].name << " ";
+				outfile << My_tree[i][j].name << " ";
 			
 
 		}
-		cout << sent_data[i].punc << " ";
+		outfile << sent_data[i].punc << " ";
 	}
-	cout << endl<<endl;
+	outfile << endl<<endl;
 }
 void TREE::rule7()
 {

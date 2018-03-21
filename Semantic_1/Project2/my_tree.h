@@ -133,12 +133,12 @@ public:
 	void standart_predikat_1();
 	void standart_predikat_2();
 	void standart_predikat_3();
-	void list();
+	void list(ofstream& outfile);
 	void start();
-	void print_sentences();
+	void print_sentences(ofstream& outfile);
 	void change_out_words(int number_of_sentence, int number_of_word, int type);								// первичное отождествление
 	int find_pred(vector<vector<string>> word, size_t number_of_sentence, size_t number_of_word);	// ищет предикато по имени
-	void print_predicate(size_t number_of_sentence, size_t number_of_word);							// распечатывание предиката
+	void print_predicate(size_t number_of_sentence, size_t number_of_word, ofstream& outfile);							// распечатывание предиката
 	node* find_close_pred(vector<vector<string>>words,size_t number_of_sentece, size_t number_of_word);								// ищет ближайший предикат, если нет непосредственно связанных
 	int find_close_child(string words, size_t number_of_sentece, size_t number_of_word);								// ищет ближайший предикат, если нет непосредственно связанных
 	void check();																							//	
@@ -150,7 +150,7 @@ public:
 	void bonding_5();				//глагол с детьми
 	void standart_predikat_4();	
 	void rule();					//считывает и закрепляет правила
-	void rule7();
+	void rule7();					// правила 2 типа
 	void rule_1();					//меняет простые правила следствием
 	void rule_3();					//правила существования другого элемента такого же
 	void rule_5();					//правила фразы "если", "то"

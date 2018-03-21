@@ -11,7 +11,6 @@
 using namespace std;
 
 ifstream infile;
-ofstream outfile;
 
 void scan_data(TREE* mytree, size_t amount_of_sentences, vector<size_t> amount_of_words_in_sentence)
 {
@@ -40,9 +39,13 @@ void scan_data(TREE* mytree, size_t amount_of_sentences, vector<size_t> amount_o
 			infile >> name;
 			for (unsigned int k = 0; k < name.size(); k++)
 			{
-				if ('а' <= name[k] && name[k] <= 'я')
+				if ('а' <= name[k] && name[k] <= 'я' )
 				{
 					name[k] += 'А' - 'а';
+				}
+				if (name[k] <= 'ё')
+				{
+					name[k] += 'Ё' - 'ё';
 				}
 			}
 			infile >> Initial_form;
@@ -51,6 +54,10 @@ void scan_data(TREE* mytree, size_t amount_of_sentences, vector<size_t> amount_o
 				if ('а' <= Initial_form[k] && Initial_form[k] <= 'я')
 				{
 					Initial_form[k] += 'А' - 'а';
+				}
+				if (Initial_form[k] <= 'ё')
+				{
+					Initial_form[k] += 'Ё' - 'ё';
 				}
 			}
 			infile.get(b);
@@ -123,16 +130,25 @@ void scan_data(TREE* mytree, size_t amount_of_sentences, vector<size_t> amount_o
 }
 
 
-int main()
+int main(int argc, char **argv)
 {
 	
 	setlocale(LC_CTYPE, "rus");
 	size_t amount_of_sentences;
 	vector<size_t> amount_of_words_in_sentence;
 	int amount_w;
-	infile.open("in.txt");
-	outfile.open("out.txt");
-	
+	string in = "in.txt";        // задаем название файла, который будет использоваться в случаи не определения входного файла пользователем
+	string out = "out.txt";      // задаем название файла, который будет использоваться в случаи не определения выходного файла пользователем
+	ofstream outfile;
+	for (int i = 1; i < argc; i++)
+	{
+		if (i==1)
+			in = argv[i];
+		if (i==2)
+			out = argv[i];
+	}
+	infile.open(in);
+	outfile.open(out);
 	if (!infile) {
 		cout << "Cannot open file.";
 	}
@@ -140,7 +156,7 @@ int main()
 	infile >> amount_of_ploblems;
 	for (int j = 0; j < amount_of_ploblems; j++)
 	{
-		cout << endl << "Предложение: " << j+1;
+		outfile << endl << "Предложение: " << j+1;
 		infile >> amount_of_sentences;
 		amount_of_words_in_sentence.resize(amount_of_sentences);
 		for (unsigned int i = 0; i < amount_of_sentences; i++)
@@ -149,45 +165,32 @@ int main()
 			infile >> amount_w;
 			amount_of_words_in_sentence[i]=amount_w;
 		}
-
-
 		TREE * mytree = new TREE(amount_of_sentences, amount_of_words_in_sentence);
 		scan_data(mytree, amount_of_sentences, amount_of_words_in_sentence);
-		mytree->print_sentences();
+		mytree->print_sentences(outfile);
 		mytree->start();
 		mytree->rule();
 		mytree->standart_predikat_1();
-		
 		mytree->rule_1();
-		
 		mytree->standart_predikat_3();
-	
 		mytree->standart_predikat_2();
 		mytree->standart_predikat_2();
 		mytree->standart_predikat_4();
 		mytree->rule7();
 		mytree->bonding();
-		
 		mytree->rule_3();
-		
 		mytree->operations();
-		//mytree->bonding_2();
 		mytree->dash();
 		mytree->bonding_4();
 		mytree->bonding_5();
-		
 		mytree->rule_4();
-		
-		
 		mytree->rule_5();
 		mytree->rule_6();
-		
-		mytree->list();
+		mytree->list(outfile);
 		mytree->clear();
 		amount_of_words_in_sentence.clear();
 	}
 	infile.close();
-	outfile.close();
-	getchar();
+	
 	return 0;
 }
