@@ -51,9 +51,9 @@ public:
 	string getListByName(const string&name);			// get list element by name
 	string getFuncByNum(size_t num);					// get func by id
 	string getFuncByName(const string&name);			// get func by name
-	int getPropSize();									// get size of prop vector
-	int getListSize();									// get size of list vector
-	int getFuncSize();									// get size of func vector
+	size_t getPropSize();									// get size of prop vector
+	size_t getListSize();									// get size of list vector
+	size_t getFuncSize();									// get size of func vector
 };
 
 class Dict {

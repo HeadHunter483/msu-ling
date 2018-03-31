@@ -1,9 +1,48 @@
+1	дан	дать	PARTCP	PARTCP pf praet - sg brev m pass -	0	root
+2	треугольник	треугольник	S	S m inan acc sg	1	1-kompl
+3	abc	abc	NONLEX	NONLEX	2	atrib
+4	со	с	PR	PR	2	atrib
+5	сторонами	сторона	S	S f inan ins pl	4	predl
+6	ab	ab	NONLEX	NONLEX	5	atrib
+7	и	и	CONJ	CONJ	6	sochin
+8	bc	bc	NONLEX	NONLEX	5	atrib
+9	,	,	,	, 	8	punc
+10	равными	равный	A	A - ins pl plen - -	5	opred
+11	5 см	5 см	NUM	NUM - - -	10	kolichest
+12	и	и	CONJ	CONJ	11	sochin
+13	6 см	6 см	NUM	NUM - - -	10	kolichest
+14	соответственно	соответственно	ADV	ADV -	10	advlink
+15	.	.	SENT	SENT	14	punc
+
+1	найти	найти	V	V pf - - inf - -	0	root
+2	сторону	сторона	S	S f inan nom sg	1	predic
+3	ac	ac	NONLEX	NONLEX	2	atrib
+4	,	,	,	, 	3	punc
+5	если	если	CONJ	CONJ	1	podch-soyuzn
+6	известно	известно	ADV	ADV -	5	r
+7	,	,	,	, 	6	punc
+8	что	что	CONJ	CONJ	6	sochin
+9	периметр	периметр	S	S m inan nom sg	11	predic
+10	треугольника	треугольник	S	S m inan gen sg	9	kvaziagent
+11	равен	равный	A	A - - sg brev m -	8	root
+12	20 см	20 см	NUM	NUM - - -	11	kolichest
+13	.	.	SENT	SENT	12	punc
+<end>
 1	периметр	периметр	S	S m inan nom sg	5	predic
 2	равнобедренного	равнобедренный	A	A - gen sg plen m -	3	opred
 3	треугольника	треугольник	S	S m inan gen sg	1	kvaziagent
 4	abc	abc	NONLEX	NONLEX	3	atrib
 5	равен	равный	A	A - - sg brev m -	0	root
 6	34 см	34 см	NUM	NUM - - -	5	kolichest
+7	.	.	SENT	SENT	6	punc
+<end>
+
+1	сторона	сторона	S	S f inan nom sg	5	predic
+2	ab	ab	NONLEX	NONLEX	1	atrib
+3	треугольника	треугольник	S	S m inan gen sg	1	kvaziagent
+4	abc	abc	NONLEX	NONLEX	3	atrib
+5	равна	равный	A	A - - sg brev f -	0	root
+6	5 см	5 см	NUM	NUM - - -	5	kolichest
 7	.	.	SENT	SENT	6	punc
 
 1	дан	дать	PARTCP	PARTCP pf praet - sg brev m pass -	0	root
@@ -16,12 +55,32 @@
 8	bc	bc	NONLEX	NONLEX	5	atrib
 9	,	,	,	, 	8	punc
 10	равными	равный	A	A - ins pl plen - -	5	opred
-11	5 см	5 см	NUM	NUM - - -	5	kolichest
+11	5 см	5 см	NUM	NUM - - -	10	kolichest
 12	и	и	CONJ	CONJ	11	sochin
-13	6 см	6 см	NUM	NUM - - -	5	kolichest
-14	соответственно	соответственно	ADV	ADV -	1	advlink
+13	6 см	6 см	NUM	NUM - - -	10	kolichest
+14	соответственно	соответственно	ADV	ADV -	10	advlink
 15	.	.	SENT	SENT	14	punc
 <end>
+1	периметр	периметр	S	S m inan nom sg	5	predic
+2	равнобедренного	равнобедренный	A	A - gen sg plen m -	3	opred
+3	треугольника	треугольник	S	S m inan gen sg	1	kvaziagent
+4	abc	abc	NONLEX	NONLEX	3	atrib
+5	равен	равный	A	A - - sg brev m -	0	root
+6	34 см	34 см	NUM	NUM - - -	5	kolichest
+7	.	.	SENT	SENT	6	punc
+
+1	дан	дать	PARTCP	PARTCP pf praet - sg brev m pass -	0	root
+2	треугольник	треугольник	S	S m inan acc sg	1	1-kompl
+3	abc	abc	NONLEX	NONLEX	2	atrib
+4	со	с	PR	PR	2	atrib
+5	стороной	сторона	S	S f inan ins sg	4	predl
+6	ab	ab	NONLEX	NONLEX	5	atrib
+7	,	,	,	, 	6	punc
+8	равной	равный	A	A - loc sg plen f -	5	wrong_link
+9	5	5	NUM	NUM - - -	8	kolichest
+10	.	.	SENT	SENT	9	punc
+<end>
+
 1	даны	давать	PARTCP	partcp pf praet - pl brev - pass -	_	0	root	_	_
 2	ромб	ромб	S	s m inan nom sg	_	1	predik	_	_
 3	ABCD	ABCD	abr	_	_	2	atrib	_	_

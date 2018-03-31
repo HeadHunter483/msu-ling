@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="windows-1251"?>
 <dict id="V">
   <token id="0">
-    <word>sadf</word>
-    <morph>A</morph>
+    <word>НАЙТИ</word>
+    <morph>V</morph>
+    <type>SPEC</type>
     <parent>-1</parent>
     <prop></prop>
-    <list>
-      ТРЕУГОЛЬНИК
-      ТРАПЕЦИЯ
-    </list>
+    <list></list>
     <func></func>
   </token>
 </dict>

@@ -25,6 +25,7 @@
 #define OBJ "OBJ"	// object (e.g.: triangle, side, ...)
 #define VAL "VAL"	// value (e.g.: length, height, ...)
 #define VAR "VAR"	// variety (e.g.: isosceles, equilateral, ...)
+#define SPEC "SPEC"	// special words (e.g.: calculate, show, ...)
 
 #define EQUAL "–¿¬Õ€…"
 

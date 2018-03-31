@@ -216,4 +216,51 @@
       окныюдэ(S,N)
     </func>
   </token>
+  <token id="19">
+    <word>бепьхмю</word>
+    <morph>S</morph>
+    <type>OBJ</type>
+    <parent>-1</parent>
+    <prop>
+      йннпдхмюрю=N
+    </prop>
+    <list></list>
+    <func></func>
+  </token>
+  <token id="20">
+    <word>йннпдхмюрю</word>
+    <morph>S</morph>
+    <type>VAL</type>
+    <parent>-1</parent>
+    <prop></prop>
+    <list></list>
+    <func></func>
+  </token>
+  <token id="21">
+    <word>бшянрю</word>
+    <morph>S</morph>
+    <type>OBJ</type>
+    <parent>7</parent>
+    <prop></prop>
+    <list></list>
+    <func></func>
+  </token>
+  <token id="22">
+    <word>ледхюмю</word>
+    <morph>S</morph>
+    <type>OBJ</type>
+    <parent>7</parent>
+    <prop></prop>
+    <list></list>
+    <func></func>
+  </token>
+  <token id="23">
+    <word>ахяяейрпхяю</word>
+    <morph>S</morph>
+    <type>OBJ</type>
+    <parent>7</parent>
+    <prop></prop>
+    <list></list>
+    <func></func>
+  </token>
 </dict>

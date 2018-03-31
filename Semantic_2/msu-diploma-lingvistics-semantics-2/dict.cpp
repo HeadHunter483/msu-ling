@@ -126,15 +126,15 @@ string DictToken::getFuncByName(const string&name) {
 	return "";
 }
 
-int DictToken::getPropSize() {
+size_t DictToken::getPropSize() {
 	return this->prop.size();
 }
 
-int DictToken::getListSize() {
+size_t DictToken::getListSize() {
 	return this->list.size();
 }
 
-int DictToken::getFuncSize() {
+size_t DictToken::getFuncSize() {
 	return this->func.size();
 }
 
@@ -298,17 +298,10 @@ void Dict::read_dict_from_file(const string&filename, Dict*dict) {
 		}
 	}
 	for (size_t i = 0; i < this->dict.size(); i++) {
-		for (size_t j = 0; j < this->dict.size(); j++) {
-			if (this->dict[i].getId() == this->dict[j].getParent()) {
-				size_t size_of_child = this->dict[j].getPropSize();
-				size_t size_of_parent = this->dict[i].getPropSize();
-				for (size_t k = 0; k < size_of_child; k++) {
-					for (size_t l = 0; l < size_of_parent; l++) {
-						if (this->dict[i].getPropByNum(l) != this->dict[j].getPropByNum(k)) {
-							this->dict[j].addProp(this->dict[i].getPropByNum(l));
-							this->dict[j].setPropVal(this->dict[j].getPropSize() - 1, this->dict[i].getPropByNum(l));
-						}
-					}
+		if (this->dict[i].getParent() != -1) {
+			for (size_t j = 0; j < this->dict[this->dict[i].getParent()].getPropSize(); j++) {
+				if (this->dict[i].getPropByName(this->dict[this->dict[i].getParent()].getPropByNum(j)).size() == 0) {
+					this->dict[i].addProp(this->dict[this->dict[i].getParent()].getPropByNum(j));
 				}
 			}
 		}

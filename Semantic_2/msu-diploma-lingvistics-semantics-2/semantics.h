@@ -49,7 +49,7 @@ struct Node {
 	Node*parent;			// pointer to parent of the token
 	int parent_id;			// id of the parent of the token
 	string relation;		// relation to the parent of the token
-	int object_id;			// id of object in semantic tree if exist, else -1
+	vector<int> object_id;	// id of object in semantic tree if exist, else -1
 };
 
 class SemTree {
@@ -68,6 +68,8 @@ class SemTree {
 	int handleVerb(Node*cur);				// handling verb-type tokens; returns 0 if successful
 	int handleAdj(Node*cur);				// handling adjective-type tokens; returns 0 if successful
 	int handleNum(Node*cur);				// handling num-type tokens; returns 0 if successful
+
+	Node*childRun(Node*cur, Node*base);				// running through children of current Node
 
 	int buildChildRelations(Node*base, Node*cur, int sent, int i);
 	int buildRelations();					// build relations between objects
