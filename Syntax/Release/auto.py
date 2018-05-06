@@ -5,7 +5,7 @@ import os
 import sys
 import time
 from utilites.clean import cleaner
-from utilites.converter import convert
+
 
 path = os.path.dirname(os.path.abspath(__file__))
 
