@@ -71,8 +71,10 @@ def morph_corrector(m):
                pr_synt(conll[k][1])
                str4=find_padej(i)
                if str4!=par_mas[0] and str4!=par_mas[1]:
-                   conll[i][4]=conll[i][4].replace(str4,par_mas[0])
+                   if conll[i-1][3]!="SPRO":
+                       conll[i][4]=conll[i][4].replace(str4,par_mas[0])
                padej=find_padej(i)
+               
            k=k-1
 
         if (conll[i-1][3]=="SPRO" or conll[i-1][3]=="S") and "gen" in conll[i-1][4] and conll[i][3]=="S":
@@ -193,7 +195,7 @@ def morph_corrector(m):
                         if conll[i-1][3]=="CONJ" and conll[i-1][1]!="и":
                             conll[i][4]=conll[i][4].replace("acc","nom")
                             break
-                        
+                                   
                         change(i,j,l,str4)
                         break
 
@@ -279,10 +281,16 @@ def morph_corrector(m):
                       str4=find_padej(i+1)
                       conll[i+1][4]=conll[i+1][4].replace(str4,"gen")
 
+             if conll[i][3]=="PARTCP" and "pl " in conll[i][4] and conll[i+1][3]=="S":
+                 conll[i+1][4]=conll[i+1][4].replace("sg","pl")
+                 str4=find_padej(i+1)
+                 conll[i+1][4]=conll[i+1][4].replace(str4,"acc")
+
 
         if (conll[1][2]=="угол" and conll[0][3]=="A"):
             str4=find_padej(1)
             conll[1][4]=conll[1][4].replace(str4,"nom")
+        
         
         
 

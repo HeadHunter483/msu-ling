@@ -3,7 +3,6 @@ path = os.path.dirname(os.path.abspath(__file__))
 
 
 pr=[]
-rules=[] # правила из файла
 
 f2=open(path+"\\..\\tmp\\predlogipadeji.txt","r",encoding="utf-8")
 
@@ -64,8 +63,11 @@ def syntax_hand(m):
             for i in range(len(conll)):
                     if (conll[i][3]==part_of_speach[0] or conll[i][3]==part_of_speach[1]) and case_param[0] in conll[i][4]:
                         if (conll[root-1][3]==part_of_speach[2] and ("imper" in conll[root-1][4] or conll[root-1][2]=="вычислить")) or (i>root-1 and (conll[root-1][1]=="-" or conll[root-1][1]=="=") or conll[root-1][3]==part_of_speach[4]):
-                            conll[i][4]=conll[i][4].replace(case_param[0],case_param[3])
-                            break
+                            if conll[i-1][3]=="CONJ" and conll[i-1][1]!="и":
+                                conll[i][4]=conll[i][4].replace(case_param[3],case_param[0])
+                            else:
+                                conll[i][4]=conll[i][4].replace(case_param[0],case_param[3])
+                                break
 
                         razmetka(i,root,link[1])
                                 
@@ -111,7 +113,16 @@ def syntax_hand(m):
                                         
                                 if conll[i-1][3]==part_of_speach[0] and conll[i-2][3]==part_of_speach[7]: 
                                     razmetka(i-2,root,link[1])
-                                
+
+                                if conll[i-1][0]==conll[root-1][0]:
+                                   razmetka(i,root,link[5])
+
+                                if conll[i-1][3]==part_of_speach[5]:#предлог
+                                    razmetka(i,i,link[3])
+                                    if conll[i+1][1]=="и" and conll[i+2][3]==part_of_speach[5]:
+                                        razmetka(i+2,conll[i][6],conll[i][7])
+                                    
+                                         
                         if conll[i][3]==part_of_speach[7] and (len(conll[i][1])>1 or conll[i][1]=="o"):
                             conll[i][1]=conll[i][1].upper()
                             conll[i][2]=conll[i][2].upper()
@@ -223,7 +234,10 @@ def syntax_hand(m):
                                 razmetka(j,i+1,link[3])
                                 break
 		 
-                    j=j+1        
+                    j=j+1
+
+            if (i<len(conll)-2) and (conll[i][3]==part_of_speach[5]) and (conll[i+1][3]==part_of_speach[3] or conll[i+1][3]==part_of_speach[4]) and (krat[1] in conll[i+1][4]) and (conll[i+2][3]==part_of_speach[0]):
+                razmetka(i+2,i+1,link[3])
 
         #conj
         for i in range(len(conll)):
@@ -236,10 +250,13 @@ def syntax_hand(m):
         #idiom and part
         for i in range(len(conll)):
                 if (conll[i][3]==part_of_speach[10]):
-                         razmetka(i,i+2,link[10])
+                         razmetka(i,root,link[10])
+                         if conll[i+1][3]==part_of_speach[0]:
+                             razmetka(i+1,i+1,link[6])
                          
                 if (conll[i][3]==part_of_speach[11]):
                          razmetka(i,root,link[11])
+                    
 	     	    
 
         #adv 
@@ -275,7 +292,8 @@ def syntax_hand(m):
             for i in range(len(conll)-1):
                 if (conll[i][7]==link[0] and conll[i][3]==part_of_speach[3] and krat[0] in conll[i][4]):
                     if ((conll[i-1][3]==part_of_speach[7] and conll[i-2][3]!=part_of_speach[0]) or (conll[i-1][3]==part_of_speach[3] and case_param[0] in conll[i-1][4])):
-                        razmetka(i-1,i+1,link[1])
+                        if conll[i-2][0]!=conll[root-1][0]:
+                            razmetka(i-1,i+1,link[1])
    
                     if conll[i+1][3]==part_of_speach[7]:
                         razmetka(i+1,i+1,link[5])
@@ -331,11 +349,14 @@ def syntax_hand(m):
                     if conll[i][3]==part_of_speach[1]:
                         razmetka(i,i,link[3])
                             
-                    if conll[i][3]==part_of_speach[5]:
-                        razmetka(i,i,link[3])
-
                     if conll[i][3]==part_of_speach[0]:
-                        razmetka(i,root,link[5])
+                        if case_param[0] in conll[i][4]:
+                            razmetka(i,root,link[1])
+                        else:
+                            razmetka(i,root,link[5])
+
+                    if conll[i][3]==part_of_speach[5]:
+                        razmetka(i,root,link[4])
                             
                     if conll[i][7]==link[0] and conll[i-1][3]==part_of_speach[3] and krat[1] in conll[i-1][4]:
                         razmetka(i-1,i+1,link[5])
@@ -348,11 +369,14 @@ def syntax_hand(m):
                             conll[i][6]=str(i+2)
                             continue
 
-                    if conll[i][1]=="как" and conll[i+1][3]==part_of_speach[8]:
-                       conll[i+1][6]=str(i+1)
+                    
 
     def math_construction():
         for i in range(len(conll)):
+            if conll[i][1]=="как" and conll[i+1][3]==part_of_speach[8]:
+                       conll[i+1][6]=str(i+1)
+                       conll[i][6]=str(root)
+                       
             if conll[i][1]=="=":
                 if conll[i-2][3]!=part_of_speach[0] and conll[i-1][3]==part_of_speach[7]:
                     razmetka(i-1,i+1,link[1])
@@ -380,14 +404,22 @@ def syntax_hand(m):
 
             if conll[i][2]=="относиться" and (conll[i+1][1]=="как" or conll[i+1][1]=="к") and (conll[i+2][3]==part_of_speach[8]):       
                 conll[i+2][6]=str(i+2)
-                
+
+            if conll[i][2]=="прилежащий" or conll[i][2]=="противолежащий": ## прилежащий угол или прилежащий к ней угол
+                r=i+1
+                while(r<len(conll)):
+                    if conll[r][3]==part_of_speach[0] and (case_param[0] or case_param[3] in conll[r][4]):
+                        razmetka(i,r+1,link[2])
+                        break
+                    r=r+1
+    
                         
             if conll[i][2]=="прямая" and conll[i+1][2]=="угол":
                     conll[i][2]="прямой"
                     conll[i][3]=part_of_speach[3]
                     conll[i][4]="A - acc sg plen m -"
                     razmetka(i,i+2,link[2])
-                    if conll[i-1][3]=="PR":
+                    if conll[i-1][3]==part_of_speach[5]:
                         razmetka(i+1,i,"predl")
                     
             if (conll[i-1][2]=="радиус" or conll[i-1][2]=="длина") and conll[i][3]==part_of_speach[8]:
@@ -424,19 +456,12 @@ def syntax_hand(m):
                         t=t-1
                 
             if conll[i][3]==part_of_speach[4] and (conll[i][2]=="описать" or conll[i][2]=="вписать") and krat[1] in conll[i][4]:
-                    if conll[i][2]=="описать":
-                        if conll[i+1][2]=="около":
-                            conll[i+1][6]=str(i+1)
-                            
-                    if conll[i][2]=="вписать":
-                        if conll[i+1][2]=="в":
-                            conll[i+1][6]=str(i+1)
                     t=i
                     while(t<len(conll)):
-                        if conll[t][3]==part_of_speach[0] or conll[t][2]=="окружность":
+                        if conll[t][3]==part_of_speach[0] or (conll[t][2]=="окружность"):
                             if conll[t][2]=="окружность":
                                 str4=find_padej(t)
-                                razmetka(i,t+1,link[2])         
+                                razmetka(i,t+1,link[2])
                                 break
 
                             if case_param[1] in conll[t][4]:
@@ -444,10 +469,8 @@ def syntax_hand(m):
                                     razmetka(t,i,link[6])
                                 
                                     
-                                    
                         t=t+1
-
-                    
+         
                                 
 
     flag=0
@@ -496,6 +519,7 @@ def syntax_hand(m):
                     if conll[i][7]==part_of_speach[2] and conll[i+1][7]==part_of_speach[2]:
                         razmetka(i+1,i+1,link[13]) ########### сложное сказуемое 2 глагола подряд ######
                         root=i+1
+    
 
     base_hand(root)## растановка основных связей (общий случай) : opred,predic,atrib,num
     add_etap_1_hand(root) # союзы связи между словами связанными союзами , тире и знак равенства .

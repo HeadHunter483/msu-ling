@@ -66,10 +66,12 @@ def syntax(morph, pr=True):
                         if conll[i][3]=="V" or (conll[i][3]=="A" and "brev" in conll[i][4]) or (conll[i][3]=="PARTCP" and "brev" in conll[i][4]) or conll[i][1]=="-":
                                 fict_fl=1
                                 break
-
+                
                 if fict_fl==0:
                         line=str(len(conll))+'\tсуществовать'+'\tсуществовать'+'\tV'+'\tV ipf - - inf - -'+'\t-'+'\t'+'0'+'\tfictive_root'+'\tbefore_punc'+'\t_\n'
                         line=line.split('\t')
+                        #conll=conll+line
+                        
                                                
                 ####### предложение простое . Предполагаемый корень 1 ######
                                         
@@ -301,7 +303,7 @@ def syntax(morph, pr=True):
                                         finish=j
                                         j=j+1
 
-                               if (conll[start][3]=="PARTCP" and "plen" in conll[start][4]) or conll[start][3]=="CONJ":     
+                               if ((conll[start][3]=="PARTCP" or conll[start][2]=="равный") and "plen" in conll[start][4]) or conll[start][3]=="CONJ":     
                                         if conll[start][3]=="CONJ":
                                                 conll[start-1][5]="end_sent_zap"
                                                 conll[start][5]="start_new_sent"
@@ -462,7 +464,7 @@ def syntax(morph, pr=True):
                               func_1(0,len(conll)-1,conll,aver_temp)
                               break
               
-              
+            
               if index==1 and g!=1 and conll[finish][5]!="start_new_sent" and conll[finish][5]!="end_oborot_zap" and conll[finish][5]!="end_sent_zap" and conll[finish][8]=="after_punc"and conll[finish][3]!="PARTCP" and conll[finish][3]!="V":
                     t=finish
                     f_3=0
@@ -478,6 +480,7 @@ def syntax(morph, pr=True):
                             
                     finish2=0
                     simp=0
+            
                     m=finish+1
                     
                     while(m<len(conll)):
@@ -507,7 +510,7 @@ def syntax(morph, pr=True):
                             simple_flag=1
                             continue
                         
-                      
+              
               if (index==1 and (conll[finish][5]=="start_new_sent" or (conll[finish][3]=="V" and conll[finish][8]=="after_punc"))):
                       fl_2=0
                       ind=0
@@ -558,7 +561,7 @@ def syntax(morph, pr=True):
                                                                       
                               u=u+1
 
-
+                      
                       if fl_2==0: # предложение начинающееся с союза без оборотов
                               func_1(finish,ind,conll,aver_temp)
                               finish=ind+1
@@ -577,7 +580,8 @@ def syntax(morph, pr=True):
                               finish=ind
                               index=1
                               continue
-                        
+
+                
         if conll[finish][3]!="SENT" and conll[finish][8]!="before_punc":
                 f_7=0
                 while(finish<len(conll)-len(punc)):
@@ -590,15 +594,20 @@ def syntax(morph, pr=True):
                                 if conll[r][5]=="start_new_sent":
                                         f_7=1
                                         break
+                                
                                 r=r+1
 
+
                         if f_7==1:
-                                if conll[r][3]=="CONJ" and conll[finish-1][3]!="CONJ":
-                                       func_1(finish-1,r,conll,aver_temp)                    
+                                if (conll[r][3]=="CONJ" and conll[finish-1][3]!="CONJ"):
+                                       func_1(finish-1,r,conll,aver_temp)
                                 else:
-                                       func_1(finish,r,conll,aver_temp)
+                                        func_1(finish,r,conll,aver_temp)
+                                       
                                
                                 finish=r+1
+
+                        
         
         ########## Cборка всех кусочков и финальный пересчет #########
 
@@ -631,6 +640,30 @@ def syntax(morph, pr=True):
         root_count=0
         main_root=0
 
+        for i in range(len(aver_temp)): ## вписана + ... и описана ##
+                razdel=0
+                if aver_temp[i][2]=="вписать" and "brev" in aver_temp[i][4]:
+                        r=i
+                        
+                        while(r<len(aver_temp)):
+                                if aver_temp[r][1]=="и":
+                                        razdel=r
+                                        
+                                if aver_temp[r][2]=="описать" and "brev" in aver_temp[r][4]:
+                                       aver_temp[r][6]="0"
+                                       aver_temp[r][7]="root"
+                                       break
+                                r=r+1
+
+                        r=razdel
+                        while(r<len(aver_temp)):
+                                if aver_temp[r][6]=="_":
+                                        aver_temp[r][6]="100"
+                                if int(aver_temp[r][0])-int(aver_temp[r][6])>1:
+                                        aver_temp[r][6]=str(int(aver_temp[r][6])+razdel)
+                                r=r+1
+                        
+
         for i in range(len(aver_temp)):
                 if aver_temp[i][3]=="PARTCP" and "plen" in aver_temp[i][4] and aver_temp[i][8]=="after_punc":
                         if aver_temp[i-1][3]=="S":
@@ -660,17 +693,36 @@ def syntax(morph, pr=True):
                                         
                                 r=r-1
 
-                if aver_temp[i][3]=="PARTCP" and aver_temp[i][6]=="_":
+                if (aver_temp[i][3]=="PARTCP" or aver_temp[i][3]=="A") and (aver_temp[i][6]=="_" or (aver_temp[i][6]=="0" and "plen" in aver_temp[i][4])):
                         t=i
                         while(t>=0):
                                 if conll[t][3]=="S":
-                                        str4=find_case(t,aver_temp)
-                                        str3=find_case(i,aver_temp)
-                                        aver_temp[i][4]=aver_temp[i][4].replace(str3,str4)
+                                        if "brev" in aver_temp[i][4]:
+                                                aver_temp[i][6]="0"
+                                                aver_temp[i][7]="root"
+                                        else:
+                                                aver_temp[i][6]=str(t+1)
+                                                aver_temp[i][7]="opred"
+                                                break
+                                t=t-1
+
+                if aver_temp[i][5]=="start_oborot" and aver_temp[i][7]!="opred":
+                        t=i
+                        while(t>=0):
+                                if aver_temp[t][3]=="S":
                                         aver_temp[i][6]=str(t+1)
                                         aver_temp[i][7]="opred"
                                         break
                                 t=t-1
+
+                        r=i+1
+                        while(r<len(aver_temp)):
+                                if aver_temp[r][3]!="NUM" and aver_temp[r][1]!="и":
+                                        break
+                                if aver_temp[r][3]=="NUM":
+                                        aver_temp[r][6]=str(i+1)
+                                        aver_temp[r][7]="kolichest"
+                                r=r+1
 
                 ################ ... который равно --> ищем слово в соотв падеже перед оборотом ##########
                                 
@@ -692,6 +744,7 @@ def syntax(morph, pr=True):
                 if (i<len(aver_temp)-1) and aver_temp[i][3]=="ADV" and aver_temp[i+1][3]=="CONJ" and aver_temp[i+1][1]!="и": ## известно , что
                         aver_temp[i][7]="root"
                         aver_temp[i][6]="0"
+
                         
                 if aver_temp[i][7]=="root":
                         #### вводное слово ####
@@ -742,7 +795,7 @@ def syntax(morph, pr=True):
                                         break
                                 j=j-1
                         
-                if (aver_temp[i][3]=="CONJ" and aver_temp[i][1]!="и"):
+                if (aver_temp[i][3]=="CONJ" and aver_temp[i][1]!="и" and aver_temp[i][1]!="как"):
                         j=i
                         while(j>=0):
                                 if (aver_temp[j][7]=="sent-soch" or aver_temp[j][7]=="podch-soyuzn" or aver_temp[j][7]=="root"):
@@ -750,21 +803,49 @@ def syntax(morph, pr=True):
                                         break
                                 j=j-1
 
-                                
+        for i in range(len(aver_temp)):# даны obj1 , obj2 , obj3
+                if aver_temp[i][3]=="PARTCP" and aver_temp[i][2]=="дать":
+                        t=i
+                        while(t<len(aver_temp)):
+                                if aver_temp[t][3]=="S" and ("nom" in aver_temp[t][4] or "acc" in aver_temp[t][4]):
+                                        aver_temp[t][6]=str(i+1)
+                                        aver_temp[t][7]="1-kompl"
+                                        aver_temp[t][4]=aver_temp[t][4].replace("nom","acc")
+                                        aver_temp[t][4]=aver_temp[t][4].replace("pl","sg")
+                                t=t+1
+                 
         for i in range(len(aver_temp)-1):
                 ######### если встретили слово первый второй без привязки к другому существительному. ищем его выше ###
                 if aver_temp[i][1]=="1" and aver_temp[i+1][1]=="из":
                         aver_temp[i][6]=str(int(aver_temp[i][6])+int(aver_temp[i-1][0]))
-
-                ######### если подлежащее определено но родитель 0 -- ищем родителя ###
-
-                if aver_temp[i][7]=="predic" and aver_temp[i][6]=="0":
+                        
+                if aver_temp[i][6]=="0" and aver_temp[i][3]=="PR":
                         t=i
-                        while(t<len(aver_temp)):
-                                if aver_temp[t][7]=="root" or aver_temp[t][7]=="podch-soyuzn":
+                        while(t>=0):
+                                if aver_temp[t][7]=="root":
                                         aver_temp[i][6]=str(t+1)
                                         break
                                 t=t+1
+                        
+                ######### если подлежащее определено но родитель 0 -- ищем родителя ###
+
+                if aver_temp[i][7]=="predic":
+                        if (int(aver_temp[i][0])>int(aver_temp[i][6])):
+                                r=i
+                                while(r<len(aver_temp)):
+                                        if aver_temp[r][7]=="root" or aver_temp[r][7]=="podch-soyuzn" or aver_temp[r][7]=="sent-soch":
+                                                aver_temp[i][6]=str(r+1)
+                                                break
+                                        r=r+1
+                                        
+                ## если номер родителя вышел за рамки ##
+                if (int(aver_temp[i][6])>len(aver_temp)): # здесь нужен <
+                        if aver_temp[i][8]=="after_punc":
+                                fictive_temp.append(i)
+                        
+                        if aver_temp[i][3]=="NUM":
+                                aver_temp[i][6]=str(i)
+                                aver_temp[i][7]="kolichest"
 
                 ### наречие + союз  etc известно , что или если что ######
                 if (aver_temp[i][3]=="ADV" or aver_temp[i][3]=="CONJ" ) and aver_temp[i+1][3]=="CONJ":
@@ -772,6 +853,11 @@ def syntax(morph, pr=True):
 
                 ###### для слова провести ищем слово к котрому его можно присоединить по смыслу ####
                 if aver_temp[i][3]=="PARTCP":
+                       if (aver_temp[i][2]=="вписать" or aver_temp[i][2]=="описать") and "plen" in aver_temp[i][4]:
+                               if aver_temp[i+1][3]!="S" and aver_temp[i][7]=="_":
+                                       aver_temp[i][6]=str(i)
+                                       aver_temp[i][7]="opred"
+                               
                        if aver_temp[i][2]=="провести":
                         h=i
                         while(h>=0):

@@ -48,7 +48,7 @@ def skleika(r):
                     rows[i][5]=str4
                    
                     k=0
-                    while(k<int(diction[j][2])):
+                    while(k<=int(diction[j][2])):
                         rows[i+k+1][1]="del"
                         k=k+1
 
