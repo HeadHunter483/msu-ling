@@ -53,6 +53,7 @@ def syntax_io(fin, fout, pr=True , *, graph_num):
                         syntax_arr=syntax(morph, pr)
                 except:
                         syntax_arr=['error\n']
+                        success=0
                 
                 if success==1:        
                         for s in syntax_arr:
