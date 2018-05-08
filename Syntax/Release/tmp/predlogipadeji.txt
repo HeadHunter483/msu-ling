@@ -7,8 +7,8 @@
 у	gen	No	root
 до 	gen	No	s
 от	gen	No	p
-с	ins	gen	s
-со	ins	gen	s
+с	ins	gen	p
+со	ins	gen	p
 между	ins	gen	p
 около	gen	No	root
 из	gen	No	root
@@ -24,7 +24,7 @@
 о	loc	No	root
 об	loc	No	root
 обо	loc	No	root
-при	loc	acc	s
+при	loc	acc	p
 внутри	gen	No	root
 		
 		
